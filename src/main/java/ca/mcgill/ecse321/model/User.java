@@ -1,23 +1,25 @@
 package ca.mcgill.ecse321.model;
-
 import javax.persistence.*;
 
-@Entity(name = "user")
+@Entity
+@Table(name = "user", schema = "public", catalog = "postgres")
 public class User {
-    private int iduser;
+    private int userid;
     private String username;
     private String password;
 
     @Id
-    public int getIduser() {
-        return iduser;
+    @Column(name = "userid")
+    public int getUserid() {
+        return userid;
     }
 
-    public void setIduser(int iduser) {
-        this.iduser = iduser;
+    public void setUserid(int userid) {
+        this.userid = userid;
     }
 
     @Basic
+    @Column(name = "username")
     public String getUsername() {
         return username;
     }
@@ -27,6 +29,7 @@ public class User {
     }
 
     @Basic
+    @Column(name = "password")
     public String getPassword() {
         return password;
     }
@@ -42,7 +45,7 @@ public class User {
 
         User that = (User) o;
 
-        if (iduser != that.iduser) return false;
+        if (userid != that.userid) return false;
         if (username != null ? !username.equals(that.username) : that.username != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
 
@@ -51,7 +54,7 @@ public class User {
 
     @Override
     public int hashCode() {
-        int result = iduser;
+        int result = userid;
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
