@@ -6,10 +6,10 @@
         <class>ca.mcgill.ecse321.model.User</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/postgres"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://ec2-54-235-212-58.compute-1.amazonaws.com:5432/d5a88ul0cp14r4?sslmode=require"/>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-            <property name="hibernate.connection.username" value="postgres"/>
-            <property name="hibernate.connection.password" value="password"/>
+            <property name="hibernate.connection.username" value="ofjuuccymfuimc"/>
+            <property name="hibernate.connection.password" value="31192a1866cf360d61e3978c6f01c6c2609a688ff8e983c24cd74f8fb0f00bc4"/>
             <property name="hibernate.archive.autodetection" value="class"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
