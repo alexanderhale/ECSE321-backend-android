@@ -1,15 +1,20 @@
-package ca.mcgill.ecse321.model;
+package ca.mcgill.ecse321.user;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user", schema = "public", catalog = "postgres")
+@Table(name = "user", schema = "public")
 public class User {
     private int userid;
     private String username;
     private String password;
 
     @Id
-    @Column(name = "userid")
+    @GeneratedValue(generator = "userid_generator")
+    @SequenceGenerator(
+            name = "userid_generator",
+            sequenceName = "user_userid_seq",
+            allocationSize = 1
+    )
     public int getUserid() {
         return userid;
     }
