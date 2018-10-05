@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "driver", schema = "public")
 public class Driver {
-    private int driverid;
+    private long driverid;
     private String username;
     private String password;
     private String carModel;
@@ -17,9 +17,9 @@ public class Driver {
             sequenceName = "driver_driverid_seq",
             allocationSize = 1
     )
-    public int getDriverid() { return driverid; }
+    public long getDriverid() { return driverid; }
 
-    public void setDriverid(int userid) {
+    public void setDriverid(long userid) {
         this.driverid = userid;
     }
 
@@ -61,14 +61,6 @@ public class Driver {
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
 
         return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = driverid;
-        result = 31 * result + (username != null ? username.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        return result;
     }
 }
 

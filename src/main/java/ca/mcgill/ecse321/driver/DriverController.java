@@ -59,9 +59,9 @@ public class DriverController {
     }
 
     @PutMapping("/secure/updateCarModel/{id}")
-    public ResponseEntity updateCarModel(@PathVariable int id, @RequestBody Map<String, String> payload) {
+    public ResponseEntity updateCarModel(@PathVariable long id, @RequestBody Map<String, String> payload) {
         System.out.println(payload);
-        driverRepository.findById((long) id)
+        driverRepository.findById(id)
                 .map(driver -> {
                     driver.setCarModel(payload.get("carModel"));
                     driverRepository.save(driver);
