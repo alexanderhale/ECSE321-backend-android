@@ -1,26 +1,26 @@
-package ca.mcgill.ecse321.user;
+package ca.mcgill.ecse321.rider;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user", schema = "public")
-public class User {
-    private int userid;
+@Table(name = "rider", schema = "public")
+public class Rider {
+    private int riderid;
     private String username;
     private String password;
 
     @Id
-    @GeneratedValue(generator = "userid_generator")
+    @GeneratedValue(generator = "riderid_generator")
     @SequenceGenerator(
-            name = "userid_generator",
-            sequenceName = "user_userid_seq",
+            name = "riderid_generator",
+            sequenceName = "rider_riderid_seq",
             allocationSize = 1
     )
-    public int getUserid() {
-        return userid;
+    public int getRiderid() {
+        return riderid;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setRiderid(int userid) {
+        this.riderid = userid;
     }
 
     @Basic
@@ -48,9 +48,9 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        User that = (User) o;
+        Rider that = (Rider) o;
 
-        if (userid != that.userid) return false;
+        if (riderid != that.riderid) return false;
         if (username != null ? !username.equals(that.username) : that.username != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
 
@@ -59,7 +59,7 @@ public class User {
 
     @Override
     public int hashCode() {
-        int result = userid;
+        int result = riderid;
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
