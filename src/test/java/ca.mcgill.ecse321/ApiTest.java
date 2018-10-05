@@ -15,10 +15,10 @@ public class ApiTest {
 
     @Test
     public void testSecureEndpoint() throws IOException {
-        HttpUriRequest request = new HttpGet("http://localhost:8080/secure/users");
+        HttpUriRequest request = new HttpGet("https://ecse321-project.herokuapp.com/");
 
         HttpResponse httpResponse = HttpClientBuilder.create().build().execute( request );
 
-        assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_INTERNAL_SERVER_ERROR);
+        assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_OK);
     }
 }
