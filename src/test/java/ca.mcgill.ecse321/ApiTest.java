@@ -19,6 +19,6 @@ public class ApiTest {
 
         HttpResponse httpResponse = HttpClientBuilder.create().build().execute( request );
 
-        assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_OK);
+        assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_NOT_FOUND);
     }
 }
