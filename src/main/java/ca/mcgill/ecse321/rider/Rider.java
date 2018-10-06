@@ -1,4 +1,5 @@
 package ca.mcgill.ecse321.rider;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,6 +8,10 @@ public class Rider {
     private long riderid;
     private String username;
     private String password;
+    private String name;
+    private int rating;
+    private int numberrides;
+    private int age;
 
     @Id
     @GeneratedValue(generator = "riderid_generator")
@@ -43,6 +48,46 @@ public class Rider {
         this.password = password;
     }
 
+    @Basic
+    @Column(name = "name")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Basic
+    @Column(name = "rating")
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    @Basic
+    @Column(name = "numberrides")
+    public int getNumberrides() {
+        return numberrides;
+    }
+
+    public void setNumberrides(int numberrides) {
+        this.numberrides = numberrides;
+    }
+
+    @Basic
+    @Column(name = "age")
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -51,8 +96,12 @@ public class Rider {
         Rider that = (Rider) o;
 
         if (riderid != that.riderid) return false;
+        if (rating != that.rating) return false;
+        if (numberrides != that.numberrides) return false;
+        if (age != that.age) return false;
         if (username != null ? !username.equals(that.username) : that.username != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
 
         return true;
     }
