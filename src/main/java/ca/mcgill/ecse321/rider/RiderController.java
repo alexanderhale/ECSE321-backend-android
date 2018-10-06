@@ -4,10 +4,13 @@ import ca.mcgill.ecse321.api.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import javax.servlet.ServletException;
+
 import org.springframework.web.bind.annotation.*;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+
 import java.util.Date;
 import java.util.List;
 

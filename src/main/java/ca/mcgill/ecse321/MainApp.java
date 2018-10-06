@@ -1,10 +1,10 @@
 package ca.mcgill.ecse321;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import ca.mcgill.ecse321.config.JwtFilter;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication()
 public class MainApp {
