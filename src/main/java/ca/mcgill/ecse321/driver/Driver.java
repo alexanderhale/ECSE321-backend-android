@@ -44,7 +44,7 @@ public class Driver {
     }
 
     @Basic
-    @Column(name = "carmodel")
+    @Column(name = "carModel")
     public String getCarModel() { return carModel; }
 
     public void setCarModel(String carModel) { this.carModel = carModel; }
