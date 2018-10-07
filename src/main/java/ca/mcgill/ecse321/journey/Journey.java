@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name = "journey", schema = "public")
 public class Journey {
     private long journeyid;
-    private int numberOfPassangers;
+    private int numberOfPassengers;
     private long driver;
     private double startLat;
     private double startLong;
@@ -37,12 +37,12 @@ public class Journey {
 
     @Basic
     @Column(name = "numpassengers")
-    public int getNumberOfPassangers() {
-        return numberOfPassangers;
+    public int getNumberOfPassengers() {
+        return numberOfPassengers;
     }
 
-    public void setNumberOfPassangers(int numberOfPassangers) {
-        this.numberOfPassangers = numberOfPassangers;
+    public void setNumberOfPassengers(int numberOfPassangers) {
+        this.numberOfPassengers = numberOfPassangers;
     }
 
 

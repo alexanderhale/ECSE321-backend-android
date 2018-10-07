@@ -47,7 +47,7 @@ public class JourneyController {
 
         journeyRepository.findById(journeyid)
                 .map(journey -> {
-                    journey.setNumberOfPassangers(journey.getNumberOfPassangers() + 1);
+                    journey.setNumberOfPassengers(journey.getNumberOfPassengers() + 1);
                     journeyRepository.save(journey);
                     return journey;
                 });
@@ -57,44 +57,44 @@ public class JourneyController {
 
     @PutMapping("/{journeyid}/modify")
     public ResponseEntity modifyJourney(@PathVariable long journeyid, @RequestBody Journey modifiedJourney) {
-        journeyRepository.findById(journeyid).map(journey -> {
-            System.out.println(modifiedJourney.getStartLat());
-            if (modifiedJourney.getStartLat() != 0) {
+        System.out.println(modifiedJourney.getStartCountry());
+        Journey newJourney = journeyRepository.findById(journeyid).map(journey -> {
+            if (modifiedJourney.getStartLat() != 0.0) {
                 journey.setStartLat(modifiedJourney.getStartLat());
             }
-            if (modifiedJourney.getStartLong() != 0) {
+            if (modifiedJourney.getStartLong() != 0.0) {
                 journey.setStartLong(modifiedJourney.getStartLong());
+            }
+            if (modifiedJourney.getStartAddress() != null) {
+                journey.setStartAddress(modifiedJourney.getStartAddress());
             }
             if (modifiedJourney.getStartCity() != null) {
                 journey.setStartCity(modifiedJourney.getStartCity());
             }
-            if (journey.getStartCity() != null) {
-                journey.setStartCity(modifiedJourney.getStartCity());
-            }
-            if (journey.getStartCountry() != null) {
+            if (modifiedJourney.getStartCountry() != null) {
                 journey.setStartCountry(modifiedJourney.getStartCountry());
             }
-            if (modifiedJourney.getEndLat() != 0) {
+            if (modifiedJourney.getEndLat() != 0.0) {
                 journey.setEndLat(modifiedJourney.getEndLat());
             }
-            if (modifiedJourney.getEndLong() != 0) {
+            if (modifiedJourney.getEndLong() != 0.0) {
                 journey.setEndLong(modifiedJourney.getEndLong());
             }
             if (modifiedJourney.getEndAddress() != null) {
                 journey.setEndAddress(modifiedJourney.getEndAddress());
             }
-            if (journey.getEndCity() != null) {
+            if (modifiedJourney.getEndCity() != null) {
                 journey.setEndCity(modifiedJourney.getEndCity());
             }
-            if (journey.getEndCountry() != null) {
+            if (modifiedJourney.getEndCountry() != null) {
                 journey.setEndCountry(modifiedJourney.getEndCountry());
             }
 
             journeyRepository.save(journey);
 
             return journey;
-        });
+        }).get();
 
-        return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(200, "Journey modified"));
+        return ResponseEntity.status(HttpStatus.OK).body(newJourney);
     }
 }
