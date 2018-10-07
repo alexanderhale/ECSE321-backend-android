@@ -25,10 +25,10 @@ public class DriverController {
     @PostMapping("/register")
     public ResponseEntity registerUser(@RequestBody Driver newDriver) {
         if (driverRepository.findDriverByUsername(newDriver.getUsername()).size() != 0) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse(400, "Driver with that username already exists"));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse(400, "Driver with that username already exists."));
         }
         driverRepository.save(newDriver);
-        return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(200, "Driver account successfully created"));
+        return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(200, "Driver account successfully created."));
     }
 
     @PostMapping("/login")
