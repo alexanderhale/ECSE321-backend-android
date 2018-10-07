@@ -43,7 +43,7 @@ public class JourneyController {
 
     @PostMapping("/{journeyid}/addRider/{riderid}")
     public ResponseEntity addRiderToJourney(@PathVariable long journeyid, @PathVariable long riderid) {
-        journeyRepository.addRider(riderid, journeyid);
+        journeyRepository.addRider(journeyid, riderid);
 
         journeyRepository.findById(journeyid)
                 .map(journey -> {
@@ -53,6 +53,19 @@ public class JourneyController {
                 });
 
         return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(200, "Passenger added"));
+    }
+
+    @PostMapping("/{journeyid}/removeRider/{riderid}")
+    public ResponseEntity removeRiderFromJourney(@PathVariable long journeyid, @PathVariable long riderid) {
+        journeyRepository.removeRider(riderid);
+
+        journeyRepository.findById(journeyid)
+                .map(journey -> {
+                    journey.setNumberOfPassengers(journey.getNumberOfPassengers() - 1);
+                    journeyRepository.save(journey);
+                    return journey;
+                });
+        return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(200, "Passenger removed"));
     }
 
     @PutMapping("/{journeyid}/modify")

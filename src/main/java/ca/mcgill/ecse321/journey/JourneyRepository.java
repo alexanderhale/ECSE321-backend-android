@@ -16,4 +16,7 @@ public interface JourneyRepository extends JpaRepository<Journey, Long> {
             "  RETURNING riderid\n" +
             ") SELECT riderid from rows;", nativeQuery = true)
     long addRider(@Param("journeyid") long journeyid, @Param("riderid") long riderid);
+
+    @Query(value = "DELETE FROM rider_journey WHERE riderid = :riderid RETURNING riderid", nativeQuery = true)
+    long removeRider(@Param("riderid") long riderid);
 }
