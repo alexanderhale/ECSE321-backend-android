@@ -3,6 +3,7 @@ package ca.mcgill.ecse321.config;
 import java.io.IOException;
 
 import org.springframework.web.filter.GenericFilterBean;
+
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;

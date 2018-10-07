@@ -9,6 +9,10 @@ public class Driver {
     private String username;
     private String password;
     private String carModel;
+    private String name;
+    private int rating;
+    private int numberrides;
+    private int age;
 
     @Id
     @GeneratedValue(generator = "driverid_generator")
@@ -17,7 +21,9 @@ public class Driver {
             sequenceName = "driver_driverid_seq",
             allocationSize = 1
     )
-    public long getDriverid() { return driverid; }
+    public long getDriverid() {
+        return driverid;
+    }
 
     public void setDriverid(long userid) {
         this.driverid = userid;
@@ -44,10 +50,55 @@ public class Driver {
     }
 
     @Basic
-    @Column(name = "carModel")
-    public String getCarModel() { return carModel; }
+    @Column(name = "carmodel")
+    public String getCarModel() {
+        return carModel;
+    }
 
-    public void setCarModel(String carModel) { this.carModel = carModel; }
+    public void setCarModel(String carModel) {
+        this.carModel = carModel;
+    }
+
+    @Basic
+    @Column(name = "name")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Basic
+    @Column(name = "rating")
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    @Basic
+    @Column(name = "numberrides")
+    public int getNumberrides() {
+        return numberrides;
+    }
+
+    public void setNumberrides(int numberrides) {
+        this.numberrides = numberrides;
+    }
+
+    @Basic
+    @Column(name = "age")
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -57,8 +108,13 @@ public class Driver {
         Driver that = (Driver) o;
 
         if (driverid != that.driverid) return false;
+        if (rating != that.rating) return false;
+        if (numberrides != that.numberrides) return false;
+        if (age != that.age) return false;
         if (username != null ? !username.equals(that.username) : that.username != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
+        if (carModel != null ? !carModel.equals(that.carModel) : that.carModel != null) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
 
         return true;
     }
