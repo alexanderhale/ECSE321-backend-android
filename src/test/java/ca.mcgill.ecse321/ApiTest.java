@@ -1,14 +1,13 @@
 package ca.mcgill.ecse321;
 
-import com.sun.tools.javac.util.DefinedBy;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.junit.Test;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.TestPropertySource;
@@ -29,31 +28,25 @@ public class ApiTest {
     }
 
     @Test
-    public void testDriverIsNull(){
-/*        HttpEntity<Driver> entity = new HttpEntity<Driver>(null, headers);
+    public void testDriverIsNull()throws IOException{
+        HttpUriRequest request = new HttpGet("https://ecse321-project.herokuapp.com/driver");
 
-        ResponseEntity<Driver> response = ;
+        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
 
-        assertEquals(entity, false);*/
+        assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_NOT_FOUND);
     }
-
     @Test
     public void testRiderIsNull(){
+        HttpUriRequest request = new HttpGet("https://ecse321-project.herokuapp.com/rider");
 
+        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
+
+        assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_NOT_FOUND);
     }
 
     @Test
-    public void testLoginSuccessully() throws Exception{
-        //example:
-/*        String username = "testDriver";
-        String password = "password";
-        String carModel = "honda";
+    public void testDriverLogin() throws Exception{
 
-        Driver driver = Api.createDriver(username, password, carModel);
-
-        Driver returned = Api.loginDriver(driver);
-
-        assertEquals(driver, returned, true);*/
     }
 
     @Test
