@@ -61,16 +61,35 @@ public class DriverController {
 
     }
 
-    @PutMapping("/secure/updateCarModel/{id}")
-    public ResponseEntity updateCarModel(@PathVariable long id, @RequestBody Map<String, String> payload) {
-        System.out.println(payload);
-        driverRepository.findById(id)
+    @PutMapping("/secure/modify/{carid}")
+    public ResponseEntity updateCarModel(@PathVariable long carid, @RequestBody Driver modifiedDriver) {
+        Driver newDriver = driverRepository.findById(carid)
                 .map(driver -> {
-                    driver.setCarModel(payload.get("carModel"));
+                    if (modifiedDriver.getUsername() != null) {
+                        driver.setUsername(modifiedDriver.getUsername());
+                    }
+                    if (modifiedDriver.getPassword() != null) {
+                        driver.setPassword(modifiedDriver.getPassword());
+                    }
+                    if (modifiedDriver.getName() != null) {
+                        driver.setName(modifiedDriver.getName());
+                    }
+                    if (modifiedDriver.getRating() != 0) {
+                        driver.setRating(modifiedDriver.getRating());
+                    }
+                    if (modifiedDriver.getNumberrides() != 0) {
+                        driver.setNumberrides(modifiedDriver.getNumberrides());
+                    }
+                    if (modifiedDriver.getAge() != 0) {
+                        driver.setAge(modifiedDriver.getAge());
+                    }
+                    if (modifiedDriver.getCarModel() != null) {
+                        driver.setCarModel(modifiedDriver.getCarModel());
+                    }
                     driverRepository.save(driver);
                     return driver;
-                });
-        return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(200, "Car model updated!"));
+                }).get();
+        return ResponseEntity.status(HttpStatus.OK).body(newDriver);
     }
 
     @GetMapping("/secure/all")
