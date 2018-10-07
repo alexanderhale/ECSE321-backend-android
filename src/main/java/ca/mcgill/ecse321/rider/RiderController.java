@@ -60,7 +60,7 @@ public class RiderController {
 
     }
 
-    @GetMapping("/secure/allRiders")
+    @GetMapping("/secure/all")
     public ResponseEntity getAllRiders() {
         List<Rider> riders = riderRepository.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(riders);

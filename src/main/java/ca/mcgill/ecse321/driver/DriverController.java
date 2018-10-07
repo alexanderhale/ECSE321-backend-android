@@ -73,7 +73,7 @@ public class DriverController {
         return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(200, "Car model updated!"));
     }
 
-    @GetMapping("/secure/allDrivers")
+    @GetMapping("/secure/all")
     public ResponseEntity getAllDrivers() {
         List<Driver> drivers = driverRepository.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(drivers);
