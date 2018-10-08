@@ -43,13 +43,56 @@ public class ApiTest {
 
     @Test // test that a Driver registration is rejected if the username is already in use
     public void testDriverRegisterDuplicate() throws Exception {
-
+        HttpUriRequest request = new HttpPost("https://ecse321-project.herokuapp.com/driver/register");
+        StringEntity input = new StringEntity("{\"username\":\"ege\",\n" +
+                "\t\"password\":\"pass\"\n" +
+                "}");
+        ((HttpPost) request).setEntity(input);
+        request.setHeader(HttpHeaders.CONTENT_TYPE, "application/json");
+        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
+        assertEquals(HttpStatus.SC_BAD_REQUEST, httpResponse.getStatusLine().getStatusCode());
     }
 
 
-    @Test // test that a Rider registration is rejected if the username is already in use
+    @Test // test that a Rider registration is rejected if the username is already in use, here we are using an already existing user elon musk in the DB. This test fails if we wipe out the DB
     public void testRiderRegisterDuplicate() throws Exception {
 
+        HttpUriRequest request = new HttpPost("https://ecse321-project.herokuapp.com/rider/register");
+        StringEntity input = new StringEntity("{\"username\":\"elon\",\n" +
+                "\t\"password\":\"musk2\"\n" +
+                "}");
+        ((HttpPost) request).setEntity(input);
+        request.setHeader(HttpHeaders.CONTENT_TYPE, "application/json");
+        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
+        assertEquals(HttpStatus.SC_BAD_REQUEST, httpResponse.getStatusLine().getStatusCode());
+    }
+
+    @Test // test that a Driver can be successfully registered when the parameters are correct
+    public void testDriverRegisterSuccessfully() throws Exception {
+        String testDriverName = RandomStringUtils.randomAlphabetic(7);
+        HttpUriRequest request = new HttpPost("https://ecse321-project.herokuapp.com/driver/register");
+        StringEntity input = new StringEntity("{\"username\":\"" + testDriverName +
+                "\",\n" +
+                "\t\"password\":\"\"\n" +
+                "}");
+        ((HttpPost) request).setEntity(input);
+        request.setHeader(HttpHeaders.CONTENT_TYPE, "application/json");
+        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
+        assertEquals(HttpStatus.SC_OK, httpResponse.getStatusLine().getStatusCode());
+    }
+
+    @Test // test that a Rider can be successfully registered when the parameters are correct
+    public void testRiderRegisterSuccessfully() throws Exception {
+        String testRiderName = RandomStringUtils.randomAlphabetic(7);
+        HttpUriRequest request = new HttpPost("https://ecse321-project.herokuapp.com/rider/register");
+        StringEntity input = new StringEntity("{\"username\":\"" + testRiderName +
+                "\",\n" +
+                "\t\"password\":\"\"\n" +
+                "}");
+        ((HttpPost) request).setEntity(input);
+        request.setHeader(HttpHeaders.CONTENT_TYPE, "application/json");
+        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
+        assertEquals(HttpStatus.SC_OK, httpResponse.getStatusLine().getStatusCode());
     }
 
 
