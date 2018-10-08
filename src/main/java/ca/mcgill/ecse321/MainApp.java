@@ -13,6 +13,7 @@ public class MainApp {
     public FilterRegistrationBean jwtFilter() {
         final FilterRegistrationBean registrationBean = new FilterRegistrationBean();
         registrationBean.setFilter(new JwtFilter());
+        //Adding the secure URL pattern after initiating the JWT filter
         registrationBean.addUrlPatterns("/secure/*");
 
         return registrationBean;
