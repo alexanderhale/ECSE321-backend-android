@@ -173,13 +173,6 @@ public class ApiTest {
         // TODO
     }
 
-    @Test   // test that a Driver's car model is updated properly
-    public void updateCarModelSuccessfully() throws Exception {
-        // TODO
-    }
-    // TODO we also need a test for when the car model isn't updated properly
-    // but there's no error checking in the Controller so that needs to be added first
-
     @Test   // test that all Drivers are returned properly
     public void getAllDriversSuccessfully() throws Exception {
         HttpUriRequest request = new HttpGet("https://ecse321-project.herokuapp.com/driver/secure/all");
@@ -190,55 +183,6 @@ public class ApiTest {
     @Test // test that all Riders are returned properly
     public void getAllRidersSuccessfully() throws Exception {
         HttpUriRequest request = new HttpGet("https://ecse321-project.herokuapp.com/rider/secure/all");
-        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
-        assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_OK);
-    }
-
-    @Test // test what happens when you call a Journey without any other info
-    public void testJourneyIsNull() throws IOException {
-        HttpUriRequest request = new HttpGet("https://ecse321-project.herokuapp.com/journey");
-        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
-        assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_NOT_FOUND);
-    }
-
-    @Test   // test that a Journey can be created successfully
-    public void createJourneySuccessfully() throws Exception {
-        String testName = RandomStringUtils.randomAlphabetic(7);
-        HttpUriRequest request = new HttpGet("https://ecse321-project.herokuapp.com/journey/create" + testName);
-        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
-        assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_CREATED);
-    }
-
-    @Test   // test that all Journeys are returned properly
-    public void getAllJourneysSuccessfully() throws Exception {
-        HttpUriRequest request = new HttpGet("https://ecse321-project.herokuapp.com/journey/all");
-        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
-        assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_OK);
-    }
-
-    //TODO: double checking on range
-    @Test   // test that a Journey's associated Driver is returned properly
-    public void getDriverUsingJourneySuccessfully() throws Exception {
-        long testJourneyID = new RandomUtils().nextLong(0, 100);
-        HttpUriRequest request = new HttpGet("https://ecse321-project.herokuapp.com/journey/" + testJourneyID + "/driver");
-        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
-        assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_OK);
-    }
-
-    //TODO: double checking on range
-    @Test   // test that a Rider is successfully added to a Journey
-    public void addRiderToJourneySuccessfully() throws Exception {
-        long testJourneyID = new RandomUtils().nextLong(0, 100);
-        long testRiderID = new RandomUtils().nextLong(0, 100);
-        HttpUriRequest request = new HttpGet("https://ecse321-project.herokuapp.com/journey/" + testJourneyID + "/addRider" + testRiderID);
-        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
-        assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_OK);
-    }
-
-    @Test   // test that a Journey's properties are modified successfully
-    public void modifyJourneySuccessfully() throws Exception {
-        long testJourneyID = new RandomUtils().nextLong(0, 100);
-        HttpUriRequest request = new HttpGet("https://ecse321-project.herokuapp.com/journey/" + testJourneyID + "/modify");
         HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
         assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_OK);
     }
