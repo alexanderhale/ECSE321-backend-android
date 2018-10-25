@@ -1,0 +1,7 @@
+ca/mcgill/ecse321/user/UserController.class
+ca/mcgill/ecse321/user/UserRepository.class
+ca/mcgill/ecse321/user/SecureController.class
+ca/mcgill/ecse321/config/JwtFilter.class
+ca/mcgill/ecse321/api/ApiResponse.class
+ca/mcgill/ecse321/MainApp.class
+ca/mcgill/ecse321/user/User.class

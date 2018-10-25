@@ -1,0 +1,940 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f093c314-8248-4af0-a5c3-05228e1b2919" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="postgre_heroku" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="postgre_heroku" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="postgre_heroku" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="d5a88ul0cp14r4: database" type="6d9b600a:PostgresImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="postgre_heroku" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="d5a88ul0cp14r4: database" type="6d9b600a:PostgresImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="postgre_heroku" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="d5a88ul0cp14r4: database" type="6d9b600a:PostgresImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="postgre_heroku" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="d5a88ul0cp14r4: database" type="6d9b600a:PostgresImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="postgre_heroku" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="d5a88ul0cp14r4: database" type="6d9b600a:PostgresImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="driver: table" type="a93d6ac6:PostgresImplModel$LocalTable" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="570326614">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="7" />
+          <entry key="project.open.time.11" value="2" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.16" value="2" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="8" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="aaemstfyvnwfww" value="1" />
+          <entry key="class" value="1" />
+          <entry key="driver" value="8" />
+          <entry key="gitignore" value="5" />
+          <entry key="hibernate_sequence" value="1" />
+          <entry key="iml" value="2" />
+          <entry key="java" value="110" />
+          <entry key="journey" value="22" />
+          <entry key="properties" value="3" />
+          <entry key="rider" value="6" />
+          <entry key="rider_journey" value="12" />
+          <entry key="sql" value="81" />
+          <entry key="user" value="22" />
+          <entry key="user_pkey" value="1" />
+          <entry key="user_userid_seq" value="3" />
+          <entry key="xml" value="26" />
+          <entry key="yml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="1" />
+          <entry key="Database Element" value="70" />
+          <entry key="IDEA_MODULE" value="2" />
+          <entry key="JAVA" value="110" />
+          <entry key="PLAIN_TEXT" value="5" />
+          <entry key="Properties" value="3" />
+          <entry key="SQL" value="25" />
+          <entry key="Scratch" value="62" />
+          <entry key="XML" value="26" />
+          <entry key="YAML" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="cell" value="19" />
+          <entry key="dummy" value="68" />
+          <entry key="java" value="10542" />
+          <entry key="properties" value="76" />
+          <entry key="sql" value="1146" />
+          <entry key="txt" value="42" />
+          <entry key="xml" value="203" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="10542" />
+          <entry key="PLAIN_TEXT" value="110" />
+          <entry key="Properties" value="76" />
+          <entry key="SQL" value="384" />
+          <entry key="Scratch" value="781" />
+          <entry key="XML" value="203" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/MainApp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/journey/JourneyRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="2" selection-start-column="2" selection-end-column="2" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/journey/JourneyController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ca.mcgill.ecse321/ApiTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="86" column="67" lean-forward="true" selection-start-line="86" selection-start-column="67" selection-end-line="86" selection-end-column="67" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>d5a</find>
+      <find>application.properties</find>
+      <find>JPA</find>
+      <find>parent</find>
+      <find>data-commons</find>
+      <find>junit</find>
+      <find>user</find>
+      <find>rider</find>
+      <find>Date</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../eventregistration/EventRegistration-backend" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/resources/SpringBeans.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/hello/MainApp.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/0d28d1bf-0085-4b91-912c-9cda0840fd04/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/LoadDatabase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/MainApp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/ApiError.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/errors/ApiError.java" />
+        <option value="a283c3a8-94c8-4e29-965c-161fa20678fc/database/d5a88ul0cp14r4/schema/public/table/user.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/user/UserRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/test/test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/test.java" />
+        <option value="$PROJECT_DIR$/src/test/test.java" />
+        <option value="$PROJECT_DIR$/src/test/java/test.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ca/mcgill/ecse321/test.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ca.mcgill.ecse321/Test.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/ca.mcgill.ecse321/test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/user/User.java" />
+        <option value="a283c3a8-94c8-4e29-965c-161fa20678fc/database/d5a88ul0cp14r4/schema/public/table/rider.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/user/Rider.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/user/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/user/RiderRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/user/RiderController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/user/SecureController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/rider/RiderRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/driver/DriverRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/driver/Driver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/rider/Rider.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/helpers/Location.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/journey/Journey.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/driver/DriverController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/rider/RiderController.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/a283c3a8-94c8-4e29-965c-161fa20678fc/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/journey/JourneyRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/journey/JourneyController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ca.mcgill.ecse321/ApiTest.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Ecse321Project" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Ecse321Project" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Ecse321Project" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>Spring</id>
+          </State>
+          <State>
+            <id>Spring AOPSpring</id>
+          </State>
+          <State>
+            <id>Spring DataSpring</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Ecse321Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="t15" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ecse321Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="t15" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ecse321Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="t15" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ecse321Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="t15" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ecse321Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="t15" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ecse321" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ecse321Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="t15" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ecse321" type="462c0819:PsiDirectoryNode" />
+              <item name="driver" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ecse321Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="t15" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ecse321" type="462c0819:PsiDirectoryNode" />
+              <item name="journey" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ecse321Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="t15" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ecse321" type="462c0819:PsiDirectoryNode" />
+              <item name="rider" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ecse321Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="t15" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ecse321Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="t15" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ecse321Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="t15" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ca.mcgill.ecse321" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql&#10;postgresql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538968251042" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/java/ca/mcgill/ecse321" />
+      <recent name="$PROJECT_DIR$/src/test/java" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.ApiTest.testSecureEndpoint">
+    <configuration name="ApiTest.addRiderToJourneySuccessfully" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Ecse321Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ca.mcgill.ecse321.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ca.mcgill.ecse321" />
+      <option name="MAIN_CLASS_NAME" value="ca.mcgill.ecse321.ApiTest" />
+      <option name="METHOD_NAME" value="addRiderToJourneySuccessfully" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApiTest.getAllDriversSuccessfully" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Ecse321Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ca.mcgill.ecse321.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ca.mcgill.ecse321" />
+      <option name="MAIN_CLASS_NAME" value="ca.mcgill.ecse321.ApiTest" />
+      <option name="METHOD_NAME" value="getAllDriversSuccessfully" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApiTest.getAllRidersSuccessfully" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Ecse321Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ca.mcgill.ecse321.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ca.mcgill.ecse321" />
+      <option name="MAIN_CLASS_NAME" value="ca.mcgill.ecse321.ApiTest" />
+      <option name="METHOD_NAME" value="getAllRidersSuccessfully" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApiTest.modifyJourneySuccessfully" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Ecse321Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ca.mcgill.ecse321.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ca.mcgill.ecse321" />
+      <option name="MAIN_CLASS_NAME" value="ca.mcgill.ecse321.ApiTest" />
+      <option name="METHOD_NAME" value="modifyJourneySuccessfully" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApiTest.testSecureEndpoint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Ecse321Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ca.mcgill.ecse321.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ca.mcgill.ecse321" />
+      <option name="MAIN_CLASS_NAME" value="ca.mcgill.ecse321.ApiTest" />
+      <option name="METHOD_NAME" value="testSecureEndpoint" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Ecse321Project" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ca.mcgill.ecse321.MainApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.MainApp" />
+      <item itemvalue="JUnit.ApiTest.addRiderToJourneySuccessfully" />
+      <item itemvalue="JUnit.ApiTest.modifyJourneySuccessfully" />
+      <item itemvalue="JUnit.ApiTest.getAllRidersSuccessfully" />
+      <item itemvalue="JUnit.ApiTest.getAllDriversSuccessfully" />
+      <item itemvalue="JUnit.ApiTest.testSecureEndpoint" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ApiTest.testSecureEndpoint" />
+        <item itemvalue="JUnit.ApiTest.getAllDriversSuccessfully" />
+        <item itemvalue="JUnit.ApiTest.getAllRidersSuccessfully" />
+        <item itemvalue="JUnit.ApiTest.modifyJourneySuccessfully" />
+        <item itemvalue="JUnit.ApiTest.addRiderToJourneySuccessfully" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f093c314-8248-4af0-a5c3-05228e1b2919" name="Default Changelist" comment="" />
+      <created>1537886202400</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1537886202400</updated>
+      <workItem from="1537886205638" duration="473000" />
+      <workItem from="1537890225558" duration="944000" />
+      <workItem from="1537891625386" duration="32000" />
+      <workItem from="1537891820305" duration="1097000" />
+      <workItem from="1537984221802" duration="474000" />
+      <workItem from="1538587515681" duration="35934000" />
+      <workItem from="1538841959049" duration="18381000" />
+      <workItem from="1538963701809" duration="2791000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="ApiTest_testDriverRegisterSuccessfully - 2018.10.07 at 22h 31m 19s.xml">
+      <configuration name="ApiTest.testDriverRegisterSuccessfully" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApiTest_testDriverRegisterSuccessfully - 2018.10.07 at 22h 32m 38s.xml">
+      <configuration name="ApiTest.testDriverRegisterSuccessfully" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApiTest_testDriverLogin_driverNotFound - 2018.10.07 at 22h 35m 04s.xml">
+      <configuration name="ApiTest.testDriverLogin_driverNotFound" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApiTest_testDriverLoginNullUser - 2018.10.07 at 22h 36m 01s.xml">
+      <configuration name="ApiTest.testDriverLoginNullUser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApiTest_testRiderLogin_driverNotFound - 2018.10.07 at 22h 37m 17s.xml">
+      <configuration name="ApiTest.testRiderLogin_driverNotFound" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApiTest_addRiderToJourneySuccessfully - 2018.10.07 at 22h 38m 19s.xml">
+      <configuration name="ApiTest.addRiderToJourneySuccessfully" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApiTest_modifyJourneySuccessfully - 2018.10.07 at 22h 40m 40s.xml">
+      <configuration name="ApiTest.modifyJourneySuccessfully" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApiTest_getAllRidersSuccessfully - 2018.10.07 at 22h 41m 45s.xml">
+      <configuration name="ApiTest.getAllRidersSuccessfully" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApiTest_getAllDriversSuccessfully - 2018.10.07 at 22h 42m 08s.xml">
+      <configuration name="ApiTest.getAllDriversSuccessfully" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApiTest_testSecureEndpoint - 2018.10.07 at 22h 44m 11s.xml">
+      <configuration name="ApiTest.testSecureEndpoint" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="60126000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49641576" visible="true" weight="0.26752505" />
+      <window_info id="Structure" order="1" sideWeight="0.50179213" side_tool="true" weight="0.26037195" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info id="Persistence" order="8" sideWeight="0.5035842" side_tool="true" weight="0.2639485" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32771084" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32891566" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Console" order="14" weight="0.26626506" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.3297568" />
+      <window_info anchor="right" id="Database" order="6" weight="0.3204578" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+      <window_info anchor="right" id="CDI" order="10" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/helpers/Location.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final-sources.jar!/javax/persistence/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a283c3a8-94c8-4e29-965c-161fa20678fc/database/d5a88ul0cp14r4/schema/public/table/driver.sql" />
+    <entry file="das://a283c3a8-94c8-4e29-965c-161fa20678fc/database/d5a88ul0cp14r4/schema/public/table/journey.sql" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/driver/DriverRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="71" lean-forward="true" selection-start-line="10" selection-start-column="71" selection-end-line="10" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/journey/Journey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/rider/Rider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="57" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/driver/DriverController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="63" column="41" lean-forward="true" selection-start-line="63" selection-start-column="41" selection-end-line="63" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/rider/RiderRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a283c3a8-94c8-4e29-965c-161fa20678fc/database/d5a88ul0cp14r4/schema/public/table/rider" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/rider/RiderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10">
+          <caret line="63" column="30" lean-forward="true" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a283c3a8-94c8-4e29-965c-161fa20678fc/database/d5a88ul0cp14r4/schema/public/table/driver" />
+    <entry file="das://a283c3a8-94c8-4e29-965c-161fa20678fc/database/d5a88ul0cp14r4/schema/public/table/journey" />
+    <entry file="das://a283c3a8-94c8-4e29-965c-161fa20678fc/database/d5a88ul0cp14r4/schema/public/table/rider_journey" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a283c3a8-94c8-4e29-965c-161fa20678fc/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="51" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/driver/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="42" lean-forward="true" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/MainApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a283c3a8-94c8-4e29-965c-161fa20678fc/database/d5a88ul0cp14r4/schema/public/table/driver">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a283c3a8-94c8-4e29-965c-161fa20678fc/database/d5a88ul0cp14r4/schema/public/table/driver">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a283c3a8-94c8-4e29-965c-161fa20678fc/database/d5a88ul0cp14r4/schema/public/table/driver">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/journey/JourneyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/journey/JourneyRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a283c3a8-94c8-4e29-965c-161fa20678fc/database/d5a88ul0cp14r4/schema/public/table/driver">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a283c3a8-94c8-4e29-965c-161fa20678fc/database/d5a88ul0cp14r4/schema/public/table/driver">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a283c3a8-94c8-4e29-965c-161fa20678fc/database/d5a88ul0cp14r4/schema/public/table/driver">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a283c3a8-94c8-4e29-965c-161fa20678fc/database/d5a88ul0cp14r4/schema/public/table/driver">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a283c3a8-94c8-4e29-965c-161fa20678fc/database/d5a88ul0cp14r4/schema/public/table/driver">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a283c3a8-94c8-4e29-965c-161fa20678fc/database/d5a88ul0cp14r4/schema/public/table/driver">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a283c3a8-94c8-4e29-965c-161fa20678fc/database/d5a88ul0cp14r4/schema/public/table/driver">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ca.mcgill.ecse321/ApiTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="86" column="67" lean-forward="true" selection-start-line="86" selection-start-column="67" selection-end-line="86" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>JPA</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Ecse321Project</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
