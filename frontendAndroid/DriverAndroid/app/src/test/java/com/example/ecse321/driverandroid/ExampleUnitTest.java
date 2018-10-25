@@ -1,4 +1,4 @@
-package com.example.alex.driverandroid;
+package com.example.ecse321.driverandroid;
 
 import org.junit.Test;
 

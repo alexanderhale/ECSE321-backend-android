@@ -1,4 +1,4 @@
-package com.example.alex.driverandroid;
+package com.example.ecse321.driverandroid;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
