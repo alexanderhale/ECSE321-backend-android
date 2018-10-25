@@ -1,42 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/start_loc_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/start_location_label"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="3dp"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="66dp" />
+        app:layout_constraintBottom_toTopOf="@+id/end_loc_label"
+        app:layout_constraintEnd_toStartOf="@+id/start_loc"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/start_location_label" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/end_loc_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/end_location_label"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="23dp"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="101dp" />
+        app:layout_constraintBottom_toTopOf="@+id/pickup_time_button"
+        app:layout_constraintEnd_toStartOf="@+id/end_loc"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_loc_label"
+        tools:text="@string/end_location_label" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/num_passenger_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginBottom="80dp"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="293dp"
+        app:layout_constraintBottom_toTopOf="@+id/add_journey_button"
+        app:layout_constraintEnd_toStartOf="@+id/num_passenger"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/price_per_passenger_label"
         tools:text="@string/number_passenger_label" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/num_passenger"
         android:layout_width="96dp"
         android:layout_height="33dp"
-        tools:layout_editor_absoluteX="278dp"
-        tools:layout_editor_absoluteY="292dp" />
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="186dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/num_passenger_label"
+        app:layout_constraintTop_toBottomOf="@+id/price_passenger" />
+
+    <Button
+        android:id="@+id/pickup_time_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="111dp"
+        android:layout_marginLeft="111dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginRight="110dp"
+        app:layout_constraintBottom_toTopOf="@+id/price_per_passenger_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/end_loc"
+        tools:text="@string/select_pickup_time" />
+
+    <TextView
+        android:id="@+id/price_per_passenger_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginBottom="16dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/num_passenger_label"
+        app:layout_constraintEnd_toStartOf="@+id/price_passenger"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pickup_time_button"
+        tools:text="@string/price_per_pass_label" />
+
+    <Button
+        android:id="@+id/add_journey_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="134dp"
+        android:layout_marginLeft="134dp"
+        android:layout_marginEnd="133dp"
+        android:layout_marginRight="133dp"
+        android:layout_marginBottom="58dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/add_journey_button" />
+
+    <EditText
+        android:id="@+id/price_passenger"
+        android:layout_width="97dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="106dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="11dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/num_passenger"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/price_per_passenger_label"
+        app:layout_constraintTop_toBottomOf="@+id/end_loc"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/start_loc"
+        android:layout_width="175dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginBottom="4dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintBottom_toTopOf="@+id/end_loc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/start_loc_label"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/end_loc"
+        android:layout_width="175dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginBottom="21dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintBottom_toTopOf="@+id/pickup_time_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/end_loc_label"
+        app:layout_constraintTop_toBottomOf="@+id/start_loc"
+        android:importantForAutofill="no" />
 
 </android.support.constraint.ConstraintLayout>

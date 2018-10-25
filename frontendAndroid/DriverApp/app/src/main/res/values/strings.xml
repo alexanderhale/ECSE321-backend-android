@@ -9,5 +9,8 @@
     <string name="start_location_label">Start location :</string>
     <string name="end_location_label">End location :</string>
     <string name="number_passenger_label">Number of passengers :</string>
-
+    <string name="select_pickup_time">Select pickup time</string>
+    <string name="price_per_pass_label">Price per passenger :</string>
+    <string name="add_journey_button">Add journey</string>
+    <string name="edit_journey_button">Edit journey</string>
 </resources>
