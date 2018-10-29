@@ -51,6 +51,13 @@ public class HomepageActivity extends AppCompatActivity {
     }
 
 
+    public void register(View view) {
+        setContentView(R.layout.activity_register);
 
+    }
 
+    public void login(View view) {
+        setContentView(R.layout.activity_login);
+
+    }
 }
