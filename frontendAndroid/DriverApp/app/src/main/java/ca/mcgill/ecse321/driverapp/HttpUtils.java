@@ -1,5 +1,10 @@
 package ca.mcgill.ecse321.driverapp;
+import android.content.Context;
+
 import com.loopj.android.http.*;
+
+import cz.msebera.android.httpclient.HttpEntity;
+import cz.msebera.android.httpclient.entity.StringEntity;
 
 public class HttpUtils {
 
@@ -12,31 +17,12 @@ public class HttpUtils {
         baseUrl = DEFAULT_BASE_URL;
     }
 
-    public static String getBaseUrl() {
-        return baseUrl;
-    }
-
-    public static void setBaseUrl(String baseUrl) {
-        HttpUtils.baseUrl = baseUrl;
-    }
-
     public static void get(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
-        client.get(getAbsoluteUrl(url), params, responseHandler);
+        client.get(baseUrl + url, params, responseHandler);
     }
 
-    public static void post(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
-        client.post(getAbsoluteUrl(url), params, responseHandler);
-    }
-
-    public static void getByUrl(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
-        client.get(url, params, responseHandler);
-    }
-
-    public static void postByUrl(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
-        client.post(url, params, responseHandler);
-    }
-
-    private static String getAbsoluteUrl(String relativeUrl) {
-        return baseUrl + relativeUrl;
+    public static void post(Context context, String url, HttpEntity entity, String contentType, AsyncHttpResponseHandler responseHandler) {
+        System.out.println(baseUrl + url);
+        client.post(context, baseUrl + url, entity, contentType, responseHandler);
     }
 }
