@@ -1,25 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:theme="@style/AppTheme">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/driver_name"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:text="@string/driver_name_holder"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="244dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginBottom="75dp"
+        android:isIndicator="true"
+        android:rating="4.7"
+        app:layout_constraintBottom_toTopOf="@+id/add_journey_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/driver_name" />
+
+    <Button
+        android:id="@+id/add_journey_button"
+        android:layout_width="213dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="86dp"
+        android:layout_marginLeft="86dp"
+        android:layout_marginTop="105dp"
+        android:layout_marginEnd="85dp"
+        android:layout_marginRight="85dp"
+        android:onClick="onAddJourneyClick"
+        android:text="@string/add_journey_button"
+        app:layout_constraintBottom_toTopOf="@+id/view_journeys_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/driver_name" />
+
+    <Button
+        android:id="@+id/view_journeys_button"
+        android:layout_width="213dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="86dp"
+        android:layout_marginLeft="86dp"
+        android:layout_marginEnd="85dp"
+        android:layout_marginRight="85dp"
+        android:onClick="onViewJourneysClick"
+        android:text="@string/view_journeys_button"
+        app:layout_constraintBottom_toTopOf="@+id/my_profile_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_journey_button" />
+
+    <Button
+        android:id="@+id/my_profile_button"
+        android:layout_width="213dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="86dp"
+        android:layout_marginLeft="86dp"
+        android:layout_marginEnd="85dp"
+        android:layout_marginRight="85dp"
+        android:layout_marginBottom="78dp"
+        android:onClick="onMyProfileClick"
+        android:text="@string/my_profile_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_journeys_button" />
+
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/front_page" />
-
-</android.support.design.widget.CoordinatorLayout>
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginBottom="7dp"
+        android:onClick="onLogoutClick"
+        android:text="@string/logout_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</android.support.constraint.ConstraintLayout>

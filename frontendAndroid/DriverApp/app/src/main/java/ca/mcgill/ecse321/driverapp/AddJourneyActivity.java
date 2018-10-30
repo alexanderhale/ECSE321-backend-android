@@ -3,6 +3,7 @@ package ca.mcgill.ecse321.driverapp;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -31,7 +32,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class AddJourneyActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener,
         TimePickerDialog.OnTimeSetListener{
-
+    public int userId;
     private String error = null;
     int day, month, year, hour, minute;
     int dayFinal, monthFinal, yearFinal, hourFinal, minuteFinal;
@@ -39,10 +40,14 @@ public class AddJourneyActivity extends AppCompatActivity implements DatePickerD
     EditText pricePassenger, startLocation, endLocation;
     Button addJourney;
     Button selectTime;
+    Button cancelButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_journey);
+
+        Intent intent = getIntent();
+        userId = intent.getIntExtra("userId", 0);
 
         numPassengers = (Spinner) findViewById(R.id.num_passenger);
         pricePassenger = (EditText) findViewById(R.id.price_passenger);
@@ -50,6 +55,7 @@ public class AddJourneyActivity extends AppCompatActivity implements DatePickerD
         endLocation = (EditText) findViewById(R.id.end_loc);
         addJourney = (Button) findViewById(R.id.add_journey_button);
         selectTime = (Button) findViewById(R.id.pickup_time_button);
+        cancelButton = (Button) findViewById(R.id.cancel_button);
 
         selectTime.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -64,8 +70,26 @@ public class AddJourneyActivity extends AppCompatActivity implements DatePickerD
                 datePickerDialog.show();
             }
         });
+
     }
 
+    public void onAddClick(View view){
+        // Perform adding event to database HERE
+        // Also perform conversion from street address to lat/lon with getLocationFromAddress() below
+
+        // Next once done and successful, go back to main menu
+        Intent intent = new Intent(AddJourneyActivity.this, MainActivity.class);
+        intent.putExtra("userId", userId);
+        startActivity(intent);
+        finish();
+    }
+
+    public void cancelOnClick(View view){
+        Intent intent = new Intent(AddJourneyActivity.this, MainActivity.class);
+        intent.putExtra("userId", userId);
+        startActivity(intent);
+        finish();
+    }
 
     @Override
     public void onDateSet(DatePicker datePicker, int i, int i1, int i2){

@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="9dp"
         android:layout_marginRight="9dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="54dp"
         android:text="@string/number_passenger_label"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/add_journey_button"
@@ -110,11 +110,13 @@
         android:layout_marginLeft="134dp"
         android:layout_marginEnd="133dp"
         android:layout_marginRight="133dp"
-        android:layout_marginBottom="58dp"
+        android:layout_marginBottom="15dp"
+        android:onClick="onAddClick"
         android:text="@string/add_journey_button"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/cancel_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/num_passenger_label" />
 
     <EditText
         android:id="@+id/price_passenger"
@@ -129,7 +131,9 @@
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="number"
-        android:textSize="10sp"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/num_passenger"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/price_per_passenger_label"
@@ -138,7 +142,7 @@
     <EditText
         android:id="@+id/start_loc"
         android:layout_width="175dp"
-        android:layout_height="34dp"
+        android:layout_height="41dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="63dp"
@@ -146,18 +150,21 @@
         android:layout_marginRight="17dp"
         android:layout_marginBottom="4dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="textPostalAddress"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/end_loc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/start_loc_label"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        android:importantForAutofill="no" />
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
         android:id="@+id/end_loc"
         android:layout_width="175dp"
-        android:layout_height="34dp"
+        android:layout_height="41dp"
         android:layout_marginStart="31dp"
         android:layout_marginLeft="31dp"
         android:layout_marginTop="4dp"
@@ -165,11 +172,30 @@
         android:layout_marginRight="17dp"
         android:layout_marginBottom="21dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="textPostalAddress"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/pickup_time_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/end_loc_label"
-        app:layout_constraintTop_toBottomOf="@+id/start_loc"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/start_loc" />
+
+    <Button
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginLeft="148dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginRight="148dp"
+        android:layout_marginBottom="39dp"
+        android:onClick="cancelOnClick"
+        android:text="@string/cancel_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_journey_button" />
 
 </android.support.constraint.ConstraintLayout>
