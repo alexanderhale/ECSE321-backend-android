@@ -31,8 +31,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FrontPageActivity"
-            android:label="Front Page"
+            android:name=".LoginActivity"
+            android:label="Login"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
