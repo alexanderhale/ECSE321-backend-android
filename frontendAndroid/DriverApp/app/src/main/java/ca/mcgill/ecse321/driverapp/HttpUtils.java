@@ -26,7 +26,18 @@ public class HttpUtils {
     }
 
     public static void post(Context context, String url, HttpEntity entity, String contentType, String token, AsyncHttpResponseHandler responseHandler) {
-        System.out.println(baseUrl + url);
+        if (token != null) {
+            String authHeader = "Bearer " + token;
+            client.addHeader("Authorization", authHeader);
+        }
         client.post(context, baseUrl + url, entity, contentType, responseHandler);
+    }
+
+    public static void put(Context context, String url, HttpEntity entity, String contentType, String token, AsyncHttpResponseHandler responseHandler) {
+        if (token != null) {
+            String authHeader = "Bearer " + token;
+            client.addHeader("Authorization", authHeader);
+        }
+        client.put(context, baseUrl + url, entity, contentType, responseHandler);
     }
 }
