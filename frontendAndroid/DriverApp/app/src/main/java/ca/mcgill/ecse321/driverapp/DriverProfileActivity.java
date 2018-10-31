@@ -22,8 +22,7 @@ import cz.msebera.android.httpclient.entity.StringEntity;
 
 public class DriverProfileActivity extends AppCompatActivity {
     int rating = 0;
-    int userId;
-    String token, driverId;
+    String token;
     EditText username, fullname, password, carModel;
     RatingBar ratingBar;
 
@@ -34,7 +33,6 @@ public class DriverProfileActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         token = intent.getStringExtra("token");
-        driverId = intent.getStringExtra("driverId");
         username = findViewById(R.id.username_textview);
         fullname = findViewById(R.id.fullname_textview);
         password = findViewById(R.id.password_textview);
@@ -114,8 +112,7 @@ public class DriverProfileActivity extends AppCompatActivity {
         } catch (UnsupportedEncodingException e) {
             Log.e("Error", "unexpected exception", e);
         }
-        String finalUrl = "driver/secure/modify" +"/"+driverId;
-        HttpUtils.post(this, finalUrl, entity, "application/json", token, new JsonHttpResponseHandler() {
+        HttpUtils.put(this, "driver/secure/modify", entity, "application/json", token, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Intent intent = new Intent(DriverProfileActivity.this, MainActivity.class);

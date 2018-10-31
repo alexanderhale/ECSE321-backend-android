@@ -25,7 +25,6 @@ import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
     int rating = 0;
-    String driverId;
     Button addJourney, viewJourneys, myProfile, logout;
     TextView driverName;
     RatingBar ratingbar;
@@ -51,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     String name = response.get("name").toString();
                     driverName.setText(name);
-                    driverId = response.get("driverid").toString();
                     if(response.get("rating") != null){
                         rating = (int) response.get("rating");
                     }
@@ -111,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
     public void onMyProfileClick(View view){
         Intent intent = new Intent(MainActivity.this, DriverProfileActivity.class);
         intent.putExtra("token", token);
-        intent.putExtra("driverId", driverId);
         startActivity(intent);
         finish();
     }
