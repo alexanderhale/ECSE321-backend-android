@@ -6,9 +6,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface RiderRepository extends JpaRepository<Rider, Long> {
     @Query("select r from Rider r where r.username = :username")
-    List<Rider> findRiderByUsername(@Param("username") String username);
+    Optional<Rider> findRiderByUsername(@Param("username") String username);
 }
