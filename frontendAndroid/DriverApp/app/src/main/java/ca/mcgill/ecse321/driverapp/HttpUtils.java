@@ -17,11 +17,15 @@ public class HttpUtils {
         baseUrl = DEFAULT_BASE_URL;
     }
 
-    public static void get(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
+    public static void get(String url, RequestParams params, String token, AsyncHttpResponseHandler responseHandler) {
+        if (token != null) {
+            String authHeader = "Bearer " + token;
+            client.addHeader("Authorization", authHeader);
+        }
         client.get(baseUrl + url, params, responseHandler);
     }
 
-    public static void post(Context context, String url, HttpEntity entity, String contentType, AsyncHttpResponseHandler responseHandler) {
+    public static void post(Context context, String url, HttpEntity entity, String contentType, String token, AsyncHttpResponseHandler responseHandler) {
         System.out.println(baseUrl + url);
         client.post(context, baseUrl + url, entity, contentType, responseHandler);
     }
