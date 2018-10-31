@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.bind.annotation.*;
 import io.jsonwebtoken.Jwts;
@@ -14,6 +15,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/driver")
@@ -24,7 +26,7 @@ public class DriverController {
 
     @PostMapping("/register")
     public ResponseEntity registerUser(@RequestBody Driver newDriver) {
-        if (driverRepository.findDriverByUsername(newDriver.getUsername()).size() != 0) {
+        if (driverRepository.findDriverByUsername(newDriver.getUsername()).isPresent()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse(400, "Driver with that username already exists."));
         }
         driverRepository.save(newDriver);
@@ -43,13 +45,13 @@ public class DriverController {
         String username = login.getUsername();
         String password = login.getPassword();
 
-        Driver driver = driverRepository.findDriverByUsername(username).get(0);
+        Optional<Driver> driver = driverRepository.findDriverByUsername(username);
 
-        if (driver == null) {
+        if (!driver.isPresent()) {
             throw new ServletException("Driver profile not found.");
         }
 
-        String pwd = driver.getPassword();
+        String pwd = driver.get().getPassword();
 
         if (!password.equals(pwd)) {
             throw new ServletException("Invalid login. Please check your username and password.");
@@ -61,9 +63,11 @@ public class DriverController {
 
     }
 
-    @PutMapping("/secure/modify/{carid}")
-    public ResponseEntity updateCarModel(@PathVariable long carid, @RequestBody Driver modifiedDriver) {
-        Driver newDriver = driverRepository.findById(carid)
+    @PutMapping("/secure/modify")
+    public ResponseEntity updateCarModel(@RequestBody Driver modifiedDriver, HttpServletRequest req) {
+        Map<String, String> claims = (Map<String, String>) req.getAttribute("claims");
+        String username = claims.get("sub");
+        Driver newDriver = driverRepository.findDriverByUsername(username)
                 .map(driver -> {
                     if (modifiedDriver.getUsername() != null) {
                         driver.setUsername(modifiedDriver.getUsername());
