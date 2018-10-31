@@ -63,6 +63,15 @@ public class DriverController {
 
     }
 
+    @GetMapping("/secure/me")
+    public ResponseEntity me(HttpServletRequest req) {
+        Map<String, String> claims = (Map<String, String>) req.getAttribute("claims");
+        String username = claims.get("sub");
+
+        Driver driver = driverRepository.findDriverByUsername(username).get();
+        return ResponseEntity.status(HttpStatus.OK).body(driver);
+    }
+
     @PutMapping("/secure/modify")
     public ResponseEntity updateCarModel(@RequestBody Driver modifiedDriver, HttpServletRequest req) {
         Map<String, String> claims = (Map<String, String>) req.getAttribute("claims");
