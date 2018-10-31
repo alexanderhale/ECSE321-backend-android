@@ -87,7 +87,7 @@ public class AddJourneyActivity extends AppCompatActivity implements DatePickerD
         String pricePass_str = pricePassenger.getText().toString();
         String numberPass_str = numPassengers.getSelectedItem().toString();
         String[] detailed_startLoc = startLoc_str.split(",");
-        String[] detailed_endLoc = startLoc_str.split(",");
+        String[] detailed_endLoc = endLoc_str.split(",");
         LatLng startLoc = getLocationFromAddress(startLoc_str);
         LatLng endLoc = getLocationFromAddress(endLoc_str);
 
