@@ -20,17 +20,18 @@ import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.entity.StringEntity;
 
 public class LoginActivity extends AppCompatActivity {
+    EditText usernameInput, passwordInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        usernameInput = findViewById(R.id.username);
+        passwordInput = findViewById(R.id.password);
     }
 
     public void onLoginPress(View view) {
-        EditText usernameInput = findViewById(R.id.username);
-        EditText passwordInput = findViewById(R.id.password);
-
         String username = usernameInput.getText().toString();
         String password = passwordInput.getText().toString();
 
@@ -72,5 +73,11 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void onRegisterPress(View view) {
+        Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

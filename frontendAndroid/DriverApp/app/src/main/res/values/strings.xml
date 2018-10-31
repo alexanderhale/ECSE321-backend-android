@@ -5,6 +5,7 @@
     <string name="register_button">REGISTER</string>
     <string name="password_label">Password</string>
     <string name="username_label">Username</string>
+    <string name="car_model_label">Car Model</string>
     <string name="date_label">Date</string>
     <string name="login_label">LOGIN</string>
     <string name="start_location_label">Start location :</string>
@@ -22,7 +23,6 @@
     <string name="full_name_label">Full Name :</string>
     <string name="username_profile">Username :</string>
     <string name="password_profile">Password :</string>
-    <string name="car_model_label">Car model :</string>
     <string name="rating_label">Rating :</string>
     <string name="num_journeys_label">Number of journeys :</string>
     <string name="back_button">Back</string>

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ca.mcgill.ecse321.driverapp">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,9 +17,11 @@
             android:label="Add a journey"
             android:theme="@style/AppTheme">
             <intent-filter>
-                <action android:name="android.intent.action.SEND"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="text/plain"/>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
         <activity
@@ -25,9 +29,11 @@
             android:label="Main Menu"
             android:theme="@style/AppTheme">
             <intent-filter>
-                <action android:name="android.intent.action.SEND"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="text/plain"/>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
         <activity
@@ -60,9 +66,16 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".RegistrationActivity"
+                  android:label="Register"
+                  android:theme="@style/AppTheme">
+        </activity>
+
         <meta-data
-            android:name='com.google.android.awareness.API_KEY'
-            android:value='AIzaSyA8Hx2C3k6EcA-1rDF5G-fAqNm9SjcCBPw'/>
+            android:name="com.google.android.awareness.API_KEY"
+            android:value="AIzaSyA8Hx2C3k6EcA-1rDF5G-fAqNm9SjcCBPw" />
+
+
     </application>
 
 </manifest>
