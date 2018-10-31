@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     Button addJourney, viewJourneys, myProfile, logout;
     TextView driverName;
     RatingBar ratingbar;
-    String token;
+    String token, driverId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     String name = response.get("name").toString();
                     driverName.setText(name);
+                    driverId = response.get("driverid").toString();
                     if(response.get("rating") != null){
                         rating = (int) response.get("rating");
                     }
@@ -94,9 +95,9 @@ public class MainActivity extends AppCompatActivity {
     public void onAddJourneyClick(View view){
         Intent intent = new Intent(MainActivity.this, AddJourneyActivity.class);
         intent.putExtra("token", token);
+        intent.putExtra("driverId", driverId);
         startActivity(intent);
-        //to be check
-        finish(); //not sure if we need to use finish() for other activies as well or not ...
+        finish();
     }
 
     public void onViewJourneysClick(View view){
