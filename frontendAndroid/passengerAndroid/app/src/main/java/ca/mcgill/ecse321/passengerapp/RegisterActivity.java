@@ -1,4 +1,4 @@
-package ca.mcgill.ecse321.passengerandroid;
+package ca.mcgill.ecse321.passengerapp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,19 +17,19 @@ import java.io.UnsupportedEncodingException;
 import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.entity.StringEntity;
 
-public class LoginActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
     EditText usernameInput, passwordInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
 
         usernameInput = findViewById(R.id.usernameField);
         passwordInput = findViewById(R.id.passwordField);
     }
 
-    public void onLoginPress(View view) {
+    public void onRegisterPress(View view) {
         String username = usernameInput.getText().toString();
         String password = passwordInput.getText().toString();
 
@@ -47,13 +47,13 @@ public class LoginActivity extends AppCompatActivity {
             Log.e("Error", "unexpected exception", e);
         }
 
-            HttpUtils.post(this, "rider/login", entity, "application/json", null, new JsonHttpResponseHandler() {
+        HttpUtils.post(this, "rider/register", entity, "application/json", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
-                    String token = (String) response.get("message");
-                    Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                    intent.putExtra("token", token);
+                    String message = (String) response.get("message");
+                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    intent.putExtra("message", message);
                     startActivity(intent);
                     finish();
                 } catch (JSONException e) {
@@ -71,11 +71,5 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    public void onRegisterPress(View view) {
-        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-        startActivity(intent);
-        finish();
     }
 }

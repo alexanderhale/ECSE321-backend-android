@@ -1,4 +1,4 @@
-package ca.mcgill.ecse321.passengerandroid;
+package ca.mcgill.ecse321.passengerapp;
 
 import android.content.Context;
 
