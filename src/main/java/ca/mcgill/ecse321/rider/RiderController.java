@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import javax.servlet.ServletException;
-import javax.websocket.server.PathParam;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.bind.annotation.*;
 import io.jsonwebtoken.Jwts;
@@ -14,6 +14,8 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/rider")
@@ -24,7 +26,7 @@ public class RiderController {
 
     @PostMapping("/register")
     public ResponseEntity registerUser(@RequestBody Rider newRider) {
-        if (riderRepository.findRiderByUsername(newRider.getUsername()).size() != 0) {
+        if (riderRepository.findRiderByUsername(newRider.getUsername()).isPresent()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse(400, "Rider with that username already exists"));
         }
         riderRepository.save(newRider);
@@ -43,13 +45,13 @@ public class RiderController {
         String username = login.getUsername();
         String password = login.getPassword();
 
-        Rider rider = riderRepository.findRiderByUsername(username).get(0);
+        Optional<Rider> rider = riderRepository.findRiderByUsername(username);
 
-        if (rider == null) {
+        if (!rider.isPresent()) {
             throw new ServletException("Rider profile not found.");
         }
 
-        String pwd = rider.getPassword();
+        String pwd = rider.get().getPassword();
 
         if (!password.equals(pwd)) {
             throw new ServletException("Invalid login. Please check your username and password.");
@@ -67,9 +69,12 @@ public class RiderController {
         return ResponseEntity.status(HttpStatus.OK).body(riders);
     }
 
-    @PutMapping("/secure/modify/{riderid}")
-    public ResponseEntity modifyRider(@PathVariable long riderid, @RequestBody Rider modifiedRider) {
-        Rider newRider = riderRepository.findById(riderid)
+    @PutMapping("/secure/modify")
+    public ResponseEntity modifyRider(@RequestBody Rider modifiedRider, HttpServletRequest req) {
+        Map<String, String> claims = (Map<String, String>) req.getAttribute("claims");
+        String username = claims.get("sub");
+
+        Rider newRider = riderRepository.findRiderByUsername(username)
                 .map(rider -> {
                    if (modifiedRider.getUsername() != null) {
                        rider.setUsername(modifiedRider.getUsername());
