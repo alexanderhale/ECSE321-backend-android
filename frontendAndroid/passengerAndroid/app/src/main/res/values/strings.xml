@@ -19,4 +19,5 @@
     <string name="car_model_button">CAR MODEL</string>
     <string name="price_button">PRICE</string>
     <string name="search_button">SEARCH</string>
+    <string name="journey_search_hint">Destination City</string>
 </resources>
