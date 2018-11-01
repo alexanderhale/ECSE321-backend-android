@@ -100,6 +100,7 @@ public class PassengerProfileActivity extends AppCompatActivity {
             jsonParams.put("username", username_str);
             jsonParams.put("password", password_str);
             jsonParams.put("name", fullName_str);
+            System.out.println(fullName_str);
         } catch (JSONException e) {
             Log.e("Error", "unexpected exception", e);
         }
@@ -109,7 +110,7 @@ public class PassengerProfileActivity extends AppCompatActivity {
         } catch (UnsupportedEncodingException e) {
             Log.e("Error", "unexpected exception", e);
         }
-        HttpUtils.put(this, "driver/secure/modify", entity, "application/json", token, new JsonHttpResponseHandler() {
+        HttpUtils.put(this, "rider/secure/modify", entity, "application/json", token, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Intent intent = new Intent(PassengerProfileActivity.this, MainActivity.class);
