@@ -9,7 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -23,7 +25,14 @@ public class JourneyController {
     private DriverRepository driverRepository;
 
     @PostMapping("/create")
-    public ResponseEntity createJourney(@RequestBody Journey newJourney) {
+    public ResponseEntity createJourney(@RequestBody Journey newJourney, HttpServletRequest req) {
+        Map<String, String> claims = (Map<String, String>) req.getAttribute("claims");
+        String username= claims.get("sub");
+        Driver driver = driverRepository.findDriverByUsername(username).get();
+        Long driverId = driver.getDriverid();
+
+        newJourney.setDriver(driverId);
+
         journeyRepository.save(newJourney);
         return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(200, "Journey successfully created"));
     }
