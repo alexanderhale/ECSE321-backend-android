@@ -24,10 +24,11 @@ public class JourneyController {
     @Autowired
     private DriverRepository driverRepository;
 
-    @PostMapping("/create")
+    @PostMapping("/secure/create")
     public ResponseEntity createJourney(@RequestBody Journey newJourney, HttpServletRequest req) {
         Map<String, String> claims = (Map<String, String>) req.getAttribute("claims");
         String username= claims.get("sub");
+
         Driver driver = driverRepository.findDriverByUsername(username).get();
         Long driverId = driver.getDriverid();
 
