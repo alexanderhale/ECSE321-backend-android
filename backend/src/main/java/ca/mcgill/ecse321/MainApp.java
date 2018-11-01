@@ -16,7 +16,6 @@ public class MainApp {
         //Adding the secure URL pattern after initiating the JWT filter
         registrationBean.addUrlPatterns("/driver/secure/*");
         registrationBean.addUrlPatterns("/rider/secure/*");
-        registrationBean.addUrlPatterns("/journey/secure/*");
 
 
         return registrationBean;
