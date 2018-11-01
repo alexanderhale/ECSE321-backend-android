@@ -15,4 +15,8 @@
     <string name="price_per_pass_label">Price per passenger :</string>
     <string name="add_journey_button">Add journey</string>
     <string name="edit_journey_button">Edit journey</string>
+    <string name="driver_button">DRIVER</string>
+    <string name="car_model_button">CAR MODEL</string>
+    <string name="price_button">PRICE</string>
+    <string name="search_button">SEARCH</string>
 </resources>

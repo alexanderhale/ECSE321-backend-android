@@ -8,17 +8,136 @@
     tools:context=".SearchActivity"
     tools:showIn="@layout/activity_search">
 
-    <SearchView
-        android:id="@+id/search_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.103" />
+    <FrameLayout
+        android:id="@+id/search_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <Button
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <SearchView
+                android:id="@+id/search_bar"
+                android:layout_width="270dp"
+                android:layout_height="52dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0"
+                android:hint="Enter Destination"/>
+
+            <Button
+                android:id="@+id/search_button"
+                android:layout_width="137dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:text="@string/search_button"
+                android:onClick="sortByDriver"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/journey_sort_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_area">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/driver_button"
+                android:layout_width="137dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:text="@string/driver_button"
+                android:onClick="sortByDriver"/>
+
+            <Button
+                android:id="@+id/car_model_button"
+                android:layout_width="137dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:text="@string/car_model_button"
+                android:onClick="sortByCarModel"/>
+
+            <Button
+                android:id="@+id/price_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:text="@string/price_button"
+                android:onClick="sortByPrice"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/journey_sort_buttons">
+
+        <FrameLayout
+            android:id="@+id/cur_journeys"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.991">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/journey_search_driver"
+                    android:layout_width="136dp"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/journey_search_car_model"
+                    android:layout_width="132dp"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/journey_search_price"
+                    android:layout_width="131dp"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+    </ScrollView>
+
+    <!--Button
         android:id="@+id/driverTitleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -108,5 +227,7 @@
         android:ems="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/priceField"
-        app:layout_constraintTop_toBottomOf="@+id/driverTitleButton" />
+        app:layout_constraintTop_toBottomOf="@+id/driverTitleButton" /-->
+
+
 </android.support.constraint.ConstraintLayout>
