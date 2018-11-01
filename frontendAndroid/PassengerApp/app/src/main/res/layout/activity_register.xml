@@ -80,7 +80,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="24dp"
         android:ems="10"
-        android:hint="@string/name_label"
+        android:hint="@string/full_name_label"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/usernameField"
         app:layout_constraintEnd_toEndOf="parent"

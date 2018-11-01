@@ -1,5 +1,7 @@
 package ca.mcgill.ecse321.passengerapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -18,23 +20,26 @@ import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.entity.StringEntity;
 
 public class RegisterActivity extends AppCompatActivity {
-    EditText usernameInput, passwordInput;
+    EditText usernameInput, passwordInput, fullNameInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        fullNameInput = findViewById(R.id.nameField);
         usernameInput = findViewById(R.id.usernameField);
         passwordInput = findViewById(R.id.passwordField);
     }
 
     public void onRegisterPress(View view) {
+        String fullName = fullNameInput.getText().toString();
         String username = usernameInput.getText().toString();
         String password = passwordInput.getText().toString();
 
         JSONObject jsonParams = new JSONObject();
         try {
+            jsonParams.put("name", fullName);
             jsonParams.put("username", username);
             jsonParams.put("password", password);
         } catch (JSONException e) {
@@ -64,6 +69,16 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 try {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                    builder.setTitle("Registration failed");
+                    builder.setMessage("Username already taken.");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // do nothing
+                        }
+                    });
+                    builder.show();
                     String error = (String) errorResponse.get("message");
                     System.out.println(errorResponse.get("path").toString());
                 } catch (JSONException e) {

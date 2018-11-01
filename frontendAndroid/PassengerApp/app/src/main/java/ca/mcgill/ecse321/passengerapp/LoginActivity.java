@@ -1,5 +1,7 @@
 package ca.mcgill.ecse321.passengerapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +21,7 @@ import cz.msebera.android.httpclient.entity.StringEntity;
 
 public class LoginActivity extends AppCompatActivity {
     EditText usernameInput, passwordInput;
+    String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +50,12 @@ public class LoginActivity extends AppCompatActivity {
             Log.e("Error", "unexpected exception", e);
         }
 
-            HttpUtils.post(this, "rider/login", entity, "application/json", null, new JsonHttpResponseHandler() {
+        HttpUtils.post(this, "rider/login", entity, "application/json", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
-                    String token = (String) response.get("message");
-                    Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                    token = (String) response.get("message");
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.putExtra("token", token);
                     startActivity(intent);
                     finish();
@@ -64,7 +67,16 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 try {
-                    String error = (String) errorResponse.get("message");
+                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                    builder.setTitle("Login failed");
+                    builder.setMessage("Incorrect username/password combination or user not found. Please try again");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // do nothing
+                        }
+                    });
+                    builder.show();
                     System.out.println(errorResponse.get("path").toString());
                 } catch (JSONException e) {
                     Log.e("Error", "unexpected exception", e);
