@@ -8,6 +8,7 @@ public class Journey {
     private long journeyid;
     private int numberOfPassengers;
     private long driver;
+    private double price;
     private double startLat;
     private double startLong;
     private String startAddress;
@@ -54,6 +55,16 @@ public class Journey {
 
     public void setDriver(long driverid) {
         this.driver = driverid;
+    }
+
+    @Basic
+    @Column(name = "price")
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     @Basic

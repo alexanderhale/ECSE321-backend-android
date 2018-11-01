@@ -40,6 +40,13 @@ public class JourneyController {
         Optional<Driver> drivers = driverRepository.findById(driverid);
         return ResponseEntity.status(HttpStatus.OK).body(drivers);
     }
+//    @GetMapping("/all/driver")
+//    public ResponseEntity getAllPrices() {
+//        List prices = journeyRepository.findAll
+//        //long prices = journeyRepository.findDriverId(journeyid);
+//       // Optional<Driver> drivers = driverRepository.findById(driverid);
+//        return ResponseEntity.status(HttpStatus.OK).body(drivers);
+//    }
 
     @PostMapping("/{journeyid}/addRider/{riderid}")
     public ResponseEntity addRiderToJourney(@PathVariable long journeyid, @PathVariable long riderid) {
