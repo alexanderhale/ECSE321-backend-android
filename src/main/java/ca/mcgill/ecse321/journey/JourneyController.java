@@ -25,15 +25,7 @@ public class JourneyController {
     private DriverRepository driverRepository;
 
     @PostMapping("/secure/create")
-    public ResponseEntity createJourney(@RequestBody Journey newJourney, HttpServletRequest req) {
-        Map<String, String> claims = (Map<String, String>) req.getAttribute("claims");
-        String username= claims.get("sub");
-
-        Driver driver = driverRepository.findDriverByUsername(username).get();
-        Long driverId = driver.getDriverid();
-
-        newJourney.setDriver(driverId);
-
+    public ResponseEntity createJourney(@RequestBody Journey newJourney) {
         journeyRepository.save(newJourney);
         return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(200, "Journey successfully created"));
     }
