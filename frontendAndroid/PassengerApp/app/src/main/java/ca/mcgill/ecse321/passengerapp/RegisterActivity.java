@@ -20,7 +20,7 @@ import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.entity.StringEntity;
 
 public class RegisterActivity extends AppCompatActivity {
-    EditText usernameInput, passwordInput, fullNameInput;
+    EditText usernameInput, passwordInput, fullNameInput, ageInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,18 +30,24 @@ public class RegisterActivity extends AppCompatActivity {
         fullNameInput = findViewById(R.id.nameField);
         usernameInput = findViewById(R.id.usernameField);
         passwordInput = findViewById(R.id.passwordField);
+        ageInput = findViewById(R.id.age);
+
     }
 
     public void onRegisterPress(View view) {
         String fullName = fullNameInput.getText().toString();
         String username = usernameInput.getText().toString();
         String password = passwordInput.getText().toString();
+        String age = ageInput.getText().toString();
+
 
         JSONObject jsonParams = new JSONObject();
         try {
-            jsonParams.put("name", fullName);
             jsonParams.put("username", username);
             jsonParams.put("password", password);
+            jsonParams.put("name", fullName);
+            jsonParams.put("age", age);
+
         } catch (JSONException e) {
             Log.e("Error", "unexpected exception", e);
         }

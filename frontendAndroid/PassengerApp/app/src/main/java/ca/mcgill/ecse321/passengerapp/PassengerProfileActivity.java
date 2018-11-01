@@ -15,7 +15,10 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+
 import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
 
 public class PassengerProfileActivity extends AppCompatActivity {
     int rating = 0;
@@ -34,6 +37,8 @@ public class PassengerProfileActivity extends AppCompatActivity {
         username = findViewById(R.id.username_textview);
         fullname = findViewById(R.id.fullname_textview);
         password = findViewById(R.id.password_textview);
+        ratingBar = findViewById(R.id.ratingBar);
+
 
         // Next here get all driver details and splash them on the view
         // Need first to get all the elements (findViewById())
@@ -85,20 +90,95 @@ public class PassengerProfileActivity extends AppCompatActivity {
         });
     }
 
-    public void onSaveClick(View view) {
-        // Save the change to the driver profil and send them to DB
-        // Next once done and successful, go back to main menu
-        Intent intent = new Intent(PassengerProfileActivity.this, MainActivity.class);
-        intent.putExtra("token", token);
-        startActivity(intent);
-        finish();
+    public void saveProfile(){
+        String username_str = username.getText().toString();
+        String password_str = password.getText().toString();
+        String fullName_str = fullname.getText().toString();
+
+        JSONObject jsonParams = new JSONObject();
+        try {
+            jsonParams.put("username", username_str);
+            jsonParams.put("password", password_str);
+            jsonParams.put("name", fullName_str);
+        } catch (JSONException e) {
+            Log.e("Error", "unexpected exception", e);
+        }
+        StringEntity entity = null;
+        try {
+            entity = new StringEntity(jsonParams.toString());
+        } catch (UnsupportedEncodingException e) {
+            Log.e("Error", "unexpected exception", e);
+        }
+        HttpUtils.put(this, "driver/secure/modify", entity, "application/json", token, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                Intent intent = new Intent(PassengerProfileActivity.this, MainActivity.class);
+                intent.putExtra("token", token);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                try {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(PassengerProfileActivity.this);
+                    builder.setTitle("Saving changes failed");
+                    builder.setMessage("Please try again.");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // do nothing
+                        }
+                    });
+                    builder.show();
+                    System.out.println(errorResponse.get("path").toString());
+                } catch (JSONException e) {
+                    Log.e("Error", "unexpected exception", e);
+                }
+            }
+        });
     }
 
-    public void onCancelClick(View view) {
-        Intent intent = new Intent(PassengerProfileActivity.this, MainActivity.class);
-        intent.putExtra("token", token);
-        startActivity(intent);
-        finish();
+
+    public void onSaveClick(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(PassengerProfileActivity.this);
+        builder.setTitle("Logout");
+        builder.setMessage("Are you sure you want to save changes ?");
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                saveProfile();
+            }
+        });
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // do nothing
+            }
+        });
+        builder.show();
+    }
+
+    public void onCancelClick(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(PassengerProfileActivity.this);
+        builder.setTitle("Logout");
+        builder.setMessage("Are you sure you want to cancel ?");
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = new Intent(PassengerProfileActivity.this, MainActivity.class);
+                intent.putExtra("token", token);
+                startActivity(intent);
+                finish();
+            }
+        });
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // do nothing
+            }
+        });
+        builder.show();
     }
 
 }
