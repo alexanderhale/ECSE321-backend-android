@@ -61,9 +61,10 @@
         android:text="PRICE"
         android:textAppearance="@style/TextAppearance.AppCompat"
         app:layout_constraintTop_toBottomOf="@+id/search_bar"
-        app:layout_constraintStart_toEndOf="@+id/driverTitleButton" />
+        app:layout_constraintStart_toEndOf="@+id/carModelTitleButton"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <ExpandableListView
+    <ListView
         android:id="@+id/driversField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,14 +75,13 @@
         android:layout_marginBottom="48dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/password_label"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/driverTitleButton"
         tools:targetApi="o" />
 
-    <ExpandableListView
+    <ListView
         android:id="@+id/priceField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
         app:layout_constraintTop_toBottomOf="@+id/driverTitleButton"
         tools:targetApi="o" />
 
-    <ExpandableListView
+    <ListView
         android:id="@+id/carModelField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
