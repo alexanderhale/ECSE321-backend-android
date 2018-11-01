@@ -24,15 +24,21 @@ public class JourneyController {
     @Autowired
     private DriverRepository driverRepository;
 
-    @PostMapping("/secure/create")
+    @PostMapping("/create")
     public ResponseEntity createJourney(@RequestBody Journey newJourney) {
         journeyRepository.save(newJourney);
         return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(200, "Journey successfully created"));
     }
 
-    @GetMapping("/all")
-    public ResponseEntity allJourneys() {
-        List<Journey> all = journeyRepository.findAll();
+    @GetMapping("/secure/all")
+    public ResponseEntity allJourneys(HttpServletRequest req) {
+        Map<String, String> claims = (Map<String, String>) req.getAttribute("claims");
+        String username = claims.get("sub");
+
+        Driver driver = driverRepository.findDriverByUsername(username).get();
+        Long driverId = driver.getDriverid();
+
+        List<Journey> all = journeyRepository.findJourniesByDriver(driverId);
         return ResponseEntity.status(HttpStatus.OK).body(all);
     }
 
