@@ -47,6 +47,15 @@ public class JourneyController {
         return ResponseEntity.status(HttpStatus.OK).body(journeys);
     }
 
+
+    @GetMapping("/me")
+    public ResponseEntity me(HttpServletRequest req) {
+        Map<String, String> claims = (Map<String, String>) req.getAttribute("claims");
+        String id = claims.get("sub");
+
+        Journey journey = journeyRepository.findJourneyById(id).get();
+        return ResponseEntity.status(HttpStatus.OK).body(id);
+    }
     @GetMapping("/{journeyid}/driver")
     public ResponseEntity getDriver(@PathVariable long journeyid) {
         long driverid = journeyRepository.findDriverId(journeyid);
@@ -122,6 +131,9 @@ public class JourneyController {
             }
             if (modifiedJourney.getPrice() != 0) {
                 journey.setPrice(modifiedJourney.getPrice());
+            }
+            if (modifiedJourney.getTimePickup() != null) {
+                journey.setTimePickup(modifiedJourney.getTimePickup());
             }
 
             journeyRepository.save(journey);
