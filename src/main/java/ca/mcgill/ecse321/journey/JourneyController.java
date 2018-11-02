@@ -31,8 +31,18 @@ public class JourneyController {
     }
 
     @GetMapping("/secure/all")
-    public ResponseEntity getAllJourneys() {
+    public ResponseEntity allJourneys(HttpServletRequest req) {
+        Map<String, String> claims = (Map<String, String>) req.getAttribute("claims");
+        String username = claims.get("sub");
 
+        Driver driver = driverRepository.findDriverByUsername(username).get();
+        Long driverId = driver.getDriverid();
+
+        List<Journey> all = journeyRepository.findJourniesByDriver(driverId);
+        return ResponseEntity.status(HttpStatus.OK).body(all);
+    }
+    @GetMapping("/all")
+    public ResponseEntity getAllJourneys() {
         List<Journey> journeys = journeyRepository.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(journeys);
     }
@@ -105,12 +115,6 @@ public class JourneyController {
             if (modifiedJourney.getEndCountry() != null) {
                 journey.setEndCountry(modifiedJourney.getEndCountry());
             }
-            if (modifiedJourney.getNumberOfPassengers() != 0) {
-                journey.setNumberOfPassengers(modifiedJourney.getNumberOfPassengers());
-            }
-            if (modifiedJourney.getCapacity() != 0) {
-                journey.setCapacity(modifiedJourney.getCapacity());
-            }
 
             journeyRepository.save(journey);
 
@@ -119,14 +123,4 @@ public class JourneyController {
 
         return ResponseEntity.status(HttpStatus.OK).body(newJourney);
     }
-    @PutMapping("/{journeyid}/close")
-    public ResponseEntity modifyJourney(@PathVariable long journeyid) {
-        Journey newJourney = journeyRepository.findById(journeyid).map(journey -> {
-            journey.setClosed(true);
-            journeyRepository.save(journey);
-            return journey;
-        }).get();
-        return ResponseEntity.status(HttpStatus.OK).body(newJourney);
-    }
-
 }
