@@ -34,13 +34,13 @@
         android:layout_marginRight="70dp"
         android:layout_marginBottom="75dp"
         android:isIndicator="true"
-        app:layout_constraintBottom_toTopOf="@+id/add_journey_button"
+        app:layout_constraintBottom_toTopOf="@+id/edit_journey_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/driver_name" />
 
     <Button
-        android:id="@+id/add_journey_button"
+        android:id="@+id/edit_journey_button"
         android:layout_width="213dp"
         android:layout_height="70dp"
         android:layout_marginStart="86dp"
@@ -69,7 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_journey_button" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_journey_button" />
 
     <Button
         android:id="@+id/my_profile_button"

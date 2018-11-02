@@ -16,13 +16,13 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="3dp"
+        android:text="@string/start_location_label"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/end_loc_label"
         app:layout_constraintEnd_toStartOf="@+id/start_loc"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/start_location_label" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/end_loc_label"
@@ -34,39 +34,38 @@
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginBottom="23dp"
+        android:text="@string/end_location_label"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/pickup_time_button"
         app:layout_constraintEnd_toStartOf="@+id/end_loc"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/start_loc_label"
-        tools:text="@string/end_location_label" />
+        app:layout_constraintTop_toBottomOf="@+id/start_loc_label" />
 
     <TextView
         android:id="@+id/num_passenger_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginEnd="9dp"
         android:layout_marginRight="9dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="54dp"
+        android:text="@string/number_passenger_label"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/add_journey_button"
+        app:layout_constraintBottom_toTopOf="@+id/edit_journey_button"
         app:layout_constraintEnd_toStartOf="@+id/num_passenger"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/price_per_passenger_label"
-        tools:text="@string/number_passenger_label" />
+        app:layout_constraintTop_toBottomOf="@+id/price_per_passenger_label" />
 
     <Spinner
         android:id="@+id/num_passenger"
-        android:layout_width="96dp"
-        android:layout_height="33dp"
+        android:layout_width="75dp"
+        android:layout_height="37dp"
         android:layout_marginStart="9dp"
         android:layout_marginLeft="9dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="186dp"
+        android:entries="@array/number_passengers"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/num_passenger_label"
@@ -74,17 +73,17 @@
 
     <Button
         android:id="@+id/pickup_time_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="245dp"
+        android:layout_height="47dp"
         android:layout_marginStart="111dp"
         android:layout_marginLeft="111dp"
         android:layout_marginEnd="110dp"
         android:layout_marginRight="110dp"
+        android:text="@string/select_pickup_time"
         app:layout_constraintBottom_toTopOf="@+id/price_per_passenger_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/end_loc"
-        tools:text="@string/select_pickup_time" />
+        app:layout_constraintTop_toBottomOf="@+id/end_loc" />
 
     <TextView
         android:id="@+id/price_per_passenger_label"
@@ -94,13 +93,13 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="37dp"
         android:layout_marginBottom="16dp"
+        android:text="@string/price_per_pass_label"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/num_passenger_label"
         app:layout_constraintEnd_toStartOf="@+id/price_passenger"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pickup_time_button"
-        tools:text="@string/price_per_pass_label" />
+        app:layout_constraintTop_toBottomOf="@+id/pickup_time_button" />
 
     <Button
         android:id="@+id/edit_journey_button"
@@ -110,34 +109,39 @@
         android:layout_marginLeft="134dp"
         android:layout_marginEnd="133dp"
         android:layout_marginRight="133dp"
-        android:layout_marginBottom="58dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="15dp"
+        android:onClick="onEditClick"
+        android:text="@string/edit_journey_button"
+        app:layout_constraintBottom_toTopOf="@+id/cancel_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="@string/edit_journey_button" />
+        app:layout_constraintTop_toBottomOf="@+id/num_passenger_label" />
 
     <EditText
         android:id="@+id/price_passenger"
-        android:layout_width="97dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginLeft="38dp"
+        android:layout_width="95dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
         android:layout_marginTop="106dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="11dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="number"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/num_passenger"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/price_per_passenger_label"
-        app:layout_constraintTop_toBottomOf="@+id/end_loc"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/end_loc" />
 
     <EditText
         android:id="@+id/start_loc"
         android:layout_width="175dp"
-        android:layout_height="34dp"
+        android:layout_height="41dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="63dp"
@@ -145,18 +149,21 @@
         android:layout_marginRight="17dp"
         android:layout_marginBottom="4dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="textPostalAddress"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/end_loc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/start_loc_label"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        android:importantForAutofill="no" />
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
         android:id="@+id/end_loc"
         android:layout_width="175dp"
-        android:layout_height="34dp"
+        android:layout_height="41dp"
         android:layout_marginStart="31dp"
         android:layout_marginLeft="31dp"
         android:layout_marginTop="4dp"
@@ -164,11 +171,30 @@
         android:layout_marginRight="17dp"
         android:layout_marginBottom="21dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="textPostalAddress"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/pickup_time_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/end_loc_label"
-        app:layout_constraintTop_toBottomOf="@+id/start_loc"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/start_loc" />
+
+    <Button
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginLeft="148dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginRight="148dp"
+        android:layout_marginBottom="39dp"
+        android:onClick="cancelOnClick"
+        android:text="@string/cancel_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_journey_button" />
 
 </android.support.constraint.ConstraintLayout>

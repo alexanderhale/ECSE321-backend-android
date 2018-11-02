@@ -31,6 +31,7 @@ import cz.msebera.android.httpclient.Header;
 public class ViewJourneysActivity extends AppCompatActivity {
     public int userId;
     Button backButton;
+    String token;
 
     public void closeJourneyAction(int id) {
         HttpUtils.put(this, "journey/" + id + "/close", null, "applicaton/json", null, new JsonHttpResponseHandler() {
@@ -45,6 +46,22 @@ public class ViewJourneysActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void editJourneyAction(int id){
+        Intent intent = new Intent(ViewJourneysActivity.this, EditJourneyActivity.class);
+        intent.putExtra("token", token);
+        intent.putExtra("id", String.valueOf(id));
+        startActivity(intent);
+        finish();
+    }
+
+    View.OnClickListener onEditJourney = new View.OnClickListener() {
+        @Override
+        public void onClick(final View v) {
+            editJourneyAction(v.getId());
+
+        }
+    };
 
     View.OnClickListener onCloseJourney = new View.OnClickListener() {
         @Override
@@ -73,9 +90,11 @@ public class ViewJourneysActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_journeys);
         Intent intent = getIntent();
-        String token = intent.getStringExtra("token");
+        token = intent.getStringExtra("token");
 
         final Context that = this;
+
+        backButton = findViewById(R.id.back_button);
 
         final LinearLayout linLayout = findViewById(R.id.lin_layout);
         linLayout.setGravity(Gravity.CENTER);
@@ -87,13 +106,14 @@ public class ViewJourneysActivity extends AppCompatActivity {
                     TextView start = new TextView(that);
                     TextView end = new TextView(that);
                     TextView noPass = new TextView(that);
-
+                    TextView pricePerPass = new TextView(that);
                     Button closeJourney = new Button(that);
                     Button modifyJourney = new Button(that);
                     closeJourney.setText("Close Journey");
                     modifyJourney.setText("Modify Journey");
 
                     closeJourney.setOnClickListener(onCloseJourney);
+                    modifyJourney.setOnClickListener(onEditJourney);
 
                     try {
                         JSONObject obj = response.getJSONObject(i);
@@ -107,12 +127,16 @@ public class ViewJourneysActivity extends AppCompatActivity {
 
                         int numberOfPassengers = obj.getInt("numberOfPassengers");
                         int capacity = obj.getInt("capacity");
-
+                        int price = obj.getInt("price");
                         long id = obj.getLong("journeyid");
                         closeJourney.setId((int) id);
+                        modifyJourney.setId((int) id);
 
                         boolean isClosed = obj.getBoolean("closed");
-                        if (isClosed) closeJourney.setEnabled(false);
+                        if (isClosed){
+                            closeJourney.setEnabled(false);
+                            modifyJourney.setEnabled(false);
+                        }
 
                         CardView cv = new CardView(that);
 
@@ -134,18 +158,19 @@ public class ViewJourneysActivity extends AppCompatActivity {
                                 LinearLayout.LayoutParams.MATCH_PARENT
                         );
                         textLayout.setLayoutParams(textLayoutParams);
-
-                        start.setText("Start: " + startAddress);
-                        end.setText("End: " + endAddress);
+                        start.setText("Start: " + startAddress + ", " + startCity);
+                        end.setText("End: " + endAddress + ", " + endCity);
                         noPass.setText("Passengers : " + Integer.toString(numberOfPassengers) + "/" + Integer.toString(capacity));
-
+                        pricePerPass.setText("Price : " + price);
                         start.setTextColor(Color.parseColor("#000000"));
                         end.setTextColor(Color.parseColor("#000000"));
                         noPass.setTextColor(Color.parseColor("#000000"));
+                        pricePerPass.setTextColor(Color.parseColor("#000000"));
 
                         textLayout.addView(start);
                         textLayout.addView(end);
                         textLayout.addView(noPass);
+                        textLayout.addView(pricePerPass);
                         textLayout.addView(closeJourney);
                         textLayout.addView(modifyJourney);
 
@@ -168,5 +193,11 @@ public class ViewJourneysActivity extends AppCompatActivity {
 
     }
 
+    public void onBackClick(View view){
+        Intent intent = new Intent(ViewJourneysActivity.this, MainActivity.class);
+        intent.putExtra("token", token);
+        startActivity(intent);
+        finish();
+    }
 
 }

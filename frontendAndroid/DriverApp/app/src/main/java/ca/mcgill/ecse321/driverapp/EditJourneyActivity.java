@@ -34,8 +34,9 @@ import java.util.List;
 import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.entity.StringEntity;
 
-public class AddJourneyActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener,
+public class EditJourneyActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener,
         TimePickerDialog.OnTimeSetListener{
+
     int day, month, year, hour, minute;
     int dayFinal, monthFinal, yearFinal, hourFinal, minuteFinal;
     Spinner numPassengers;
@@ -43,15 +44,15 @@ public class AddJourneyActivity extends AppCompatActivity implements DatePickerD
     Button addJourney;
     Button selectTime;
     Button cancelButton;
-    String token, driverId;
+    String token, journeyId, driverId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.edit_journey);
+        setContentView(R.layout.add_journey);
 
         Intent intent = getIntent();
         token = intent.getStringExtra("token");
-        driverId = intent.getStringExtra("driverId");
+        journeyId = intent.getStringExtra("id");
 
         numPassengers = (Spinner) findViewById(R.id.num_passenger);
         pricePassenger = (EditText) findViewById(R.id.price_passenger);
@@ -61,6 +62,56 @@ public class AddJourneyActivity extends AppCompatActivity implements DatePickerD
         selectTime = (Button) findViewById(R.id.pickup_time_button);
         cancelButton = (Button) findViewById(R.id.cancel_button);
 
+        HttpUtils.get("journey/secure/me", null, token, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    String numPassengers_str = response.get("numberOfPassengers").toString();
+                    String pricePassenger_str = response.get("price").toString();
+                    String startAddr_str = response.get("startAddress").toString();
+                    String startCity_str = response.get("startCity").toString();
+                    String startCountry_str = response.get("startCountry").toString();
+                    String endAddr_str = response.get("endAddress").toString();
+                    String endCity_str = response.get("endCity").toString();
+                    String endCountry_str = response.get("endCountry").toString();
+                    String time_str = response.get("timePickup").toString();
+                    driverId = response.get("driver").toString();
+
+                    //setSelection() works with position 0-indexed which is why -1
+                    numPassengers.setSelection(Integer.getInteger(numPassengers_str)-1);
+                    pricePassenger.setText(pricePassenger_str);
+                    startLocation.setText(startAddr_str + ", " + startCity_str + ", " + startCountry_str);
+                    endLocation.setText(endAddr_str + ", " + endCity_str + ", " + endCountry_str);
+                    selectTime.setText(time_str);
+
+                } catch (JSONException e) {
+                    Log.e("Error", "unexpected exception", e);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                try {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(EditJourneyActivity.this);
+                    builder.setTitle("Fetching journey failed");
+                    builder.setMessage("Please try again.");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent intent = new Intent(EditJourneyActivity.this, ViewJourneysActivity.class);
+                            intent.putExtra("token", token);
+                            startActivity(intent);
+                            finish();
+                        }
+                    });
+                    builder.show();
+                    System.out.println(errorResponse.get("path").toString());
+                } catch (JSONException e) {
+                    Log.e("Error", "unexpected exception", e);
+                }
+            }
+        });
+
         selectTime.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -69,15 +120,15 @@ public class AddJourneyActivity extends AppCompatActivity implements DatePickerD
                 month = c.get(Calendar.MONTH);
                 day = c.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(AddJourneyActivity.this,
-                        AddJourneyActivity.this, year, month, day);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(EditJourneyActivity.this,
+                        EditJourneyActivity.this, year, month, day);
                 datePickerDialog.show();
             }
         });
 
     }
 
-    public void addJourneyAction(){
+    public void editJourneyAction(){
 
         String startLoc_str = startLocation.getText().toString();
         String endLoc_str = endLocation.getText().toString();
@@ -119,7 +170,7 @@ public class AddJourneyActivity extends AppCompatActivity implements DatePickerD
         HttpUtils.post(this, "journey/create", entity, "application/json", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Intent intent = new Intent(AddJourneyActivity.this, MainActivity.class);
+                Intent intent = new Intent(EditJourneyActivity.this, MainActivity.class);
                 intent.putExtra("token", token);
                 startActivity(intent);
                 finish();
@@ -128,7 +179,7 @@ public class AddJourneyActivity extends AppCompatActivity implements DatePickerD
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 try {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(AddJourneyActivity.this);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(EditJourneyActivity.this);
                     builder.setTitle("Adding journey failed");
                     builder.setMessage("Please try again. Verify addresses are correctly typed. " +
                             "Format (',' are important): Street address, City, Country");
@@ -148,14 +199,14 @@ public class AddJourneyActivity extends AppCompatActivity implements DatePickerD
             }
         });
     }
-    public void onAddClick(View view){
-        AlertDialog.Builder builder = new AlertDialog.Builder(AddJourneyActivity.this);
-        builder.setTitle("Add journey");
-        builder.setMessage("Confirm adding journey?");
+    public void onEditClick(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(EditJourneyActivity.this);
+        builder.setTitle("Edit journey");
+        builder.setMessage("Confirm editing journey?");
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                addJourneyAction();
+                editJourneyAction();
             }
         });
         builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
@@ -168,13 +219,13 @@ public class AddJourneyActivity extends AppCompatActivity implements DatePickerD
     }
 
     public void cancelOnClick(View view){
-        AlertDialog.Builder builder = new AlertDialog.Builder(AddJourneyActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(EditJourneyActivity.this);
         builder.setTitle("Logout");
         builder.setMessage("Are you sure you want to cancel ?");
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intent = new Intent(AddJourneyActivity.this, MainActivity.class);
+                Intent intent = new Intent(EditJourneyActivity.this, ViewJourneysActivity.class);
                 intent.putExtra("token", token);
                 startActivity(intent);
                 finish();
@@ -199,8 +250,8 @@ public class AddJourneyActivity extends AppCompatActivity implements DatePickerD
         hour = c.get(Calendar.HOUR_OF_DAY);
         minute = c.get(Calendar.MINUTE);
 
-        TimePickerDialog timePickerDialog = new TimePickerDialog(AddJourneyActivity.this,
-                AddJourneyActivity.this, hour, minute, DateFormat.is24HourFormat(this));
+        TimePickerDialog timePickerDialog = new TimePickerDialog(EditJourneyActivity.this,
+                EditJourneyActivity.this, hour, minute, DateFormat.is24HourFormat(this));
         timePickerDialog.show();
     }
 
@@ -217,7 +268,7 @@ public class AddJourneyActivity extends AppCompatActivity implements DatePickerD
 
     public LatLng getLocationFromAddress(String strAddress) {
 
-        Geocoder coder = new Geocoder(AddJourneyActivity.this);
+        Geocoder coder = new Geocoder(EditJourneyActivity.this);
         List<Address> address;
         LatLng p1 = null;
 
