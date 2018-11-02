@@ -20,7 +20,6 @@ import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
     int rating = 0;
-    public int userId;
     Button myProfile, logout;
     TextView driverName;
     RatingBar ratingbar;
@@ -87,6 +86,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void onMyProfileClick(View view) {
         Intent intent = new Intent(MainActivity.this, PassengerProfileActivity.class);
+        intent.putExtra("token", token);
+        startActivity(intent);
+        finish();
+    }
+    public void onViewJourneysClick(View view) {
+        Intent intent = new Intent(MainActivity.this, SearchActivity.class);
         intent.putExtra("token", token);
         startActivity(intent);
         finish();
