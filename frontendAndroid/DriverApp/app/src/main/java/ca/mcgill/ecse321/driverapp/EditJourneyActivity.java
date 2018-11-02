@@ -75,7 +75,7 @@ public class EditJourneyActivity extends AppCompatActivity implements DatePicker
                     String endAddr_str = response.get("endAddress").toString();
                     String endCity_str = response.get("endCity").toString();
                     String endCountry_str = response.get("endCountry").toString();
-                    String time_str = response.get("timePickup").toString();
+                    //String time_str = response.get("timePickup").toString();
                     driverId = response.get("driver").toString();
 
                     //setSelection() works with position 0-indexed which is why we use -1
@@ -83,7 +83,7 @@ public class EditJourneyActivity extends AppCompatActivity implements DatePicker
                     pricePassenger.setText(pricePassenger_str);
                     startLocation.setText(startAddr_str + ", " + startCity_str + ", " + startCountry_str);
                     endLocation.setText(endAddr_str + ", " + endCity_str + ", " + endCountry_str);
-                    selectTime.setText(time_str);
+                    //selectTime.setText(time_str);
 
                 } catch (JSONException e) {
                     Log.e("Error", "unexpected exception", e);

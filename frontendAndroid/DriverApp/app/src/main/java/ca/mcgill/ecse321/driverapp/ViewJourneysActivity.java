@@ -107,6 +107,7 @@ public class ViewJourneysActivity extends AppCompatActivity {
                     TextView end = new TextView(that);
                     TextView noPass = new TextView(that);
                     TextView pricePerPass = new TextView(that);
+                    TextView pickupTime = new TextView(that);
                     Button closeJourney = new Button(that);
                     Button modifyJourney = new Button(that);
                     closeJourney.setText("Close Journey");
@@ -127,7 +128,8 @@ public class ViewJourneysActivity extends AppCompatActivity {
 
                         int numberOfPassengers = obj.getInt("numberOfPassengers");
                         int capacity = obj.getInt("capacity");
-                        int price = obj.getInt("price");
+                        //int price = obj.getInt("price");
+                        //String pickupTime_str = obj.getString("timePickup");
                         long id = obj.getLong("journeyid");
                         closeJourney.setId((int) id);
                         modifyJourney.setId((int) id);
@@ -161,19 +163,21 @@ public class ViewJourneysActivity extends AppCompatActivity {
                         start.setText("Start: " + startAddress + ", " + startCity);
                         end.setText("End: " + endAddress + ", " + endCity);
                         noPass.setText("Passengers : " + Integer.toString(numberOfPassengers) + "/" + Integer.toString(capacity));
-                        pricePerPass.setText("Price : " + price);
+                        //pricePerPass.setText("Price : " + price + " $");
+                        //pickupTime.setText("Time : " + pickupTime_str);
                         start.setTextColor(Color.parseColor("#000000"));
                         end.setTextColor(Color.parseColor("#000000"));
                         noPass.setTextColor(Color.parseColor("#000000"));
                         pricePerPass.setTextColor(Color.parseColor("#000000"));
+                        pickupTime.setTextColor(Color.parseColor("#000000"));
 
                         textLayout.addView(start);
                         textLayout.addView(end);
                         textLayout.addView(noPass);
                         textLayout.addView(pricePerPass);
+                        textLayout.addView(pickupTime);
                         textLayout.addView(closeJourney);
                         textLayout.addView(modifyJourney);
-
                         cv.addView(textLayout);
 
 

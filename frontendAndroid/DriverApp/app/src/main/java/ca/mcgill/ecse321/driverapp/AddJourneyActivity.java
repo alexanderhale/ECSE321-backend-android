@@ -47,7 +47,7 @@ public class AddJourneyActivity extends AppCompatActivity implements DatePickerD
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.edit_journey);
+        setContentView(R.layout.add_journey);
 
         Intent intent = getIntent();
         token = intent.getStringExtra("token");
