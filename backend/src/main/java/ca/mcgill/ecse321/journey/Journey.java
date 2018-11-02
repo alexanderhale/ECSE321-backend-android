@@ -20,6 +20,7 @@ public class Journey {
     private String endAddress;
     private String endCity;
     private String endCountry;
+    private double price;
 
     @Id
     @GeneratedValue(generator = "journeyid_generator")
@@ -62,6 +63,7 @@ public class Journey {
     public boolean isClosed() {
         return closed;
     }
+
     public void setClosed(boolean closed) {
         this.closed = closed;
     }
@@ -174,6 +176,16 @@ public class Journey {
 
     public void setEndCountry(String endCountry) {
         this.endCountry = endCountry;
+    }
+
+    @Basic
+    @Column(name = "price")
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
 }
