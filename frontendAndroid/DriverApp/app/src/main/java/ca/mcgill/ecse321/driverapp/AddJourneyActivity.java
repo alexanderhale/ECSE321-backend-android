@@ -94,7 +94,8 @@ public class AddJourneyActivity extends AppCompatActivity implements DatePickerD
         JSONObject jsonParams = new JSONObject();
         try {
             jsonParams.put("driver", driverId);
-            jsonParams.put("numberOfPassengers", numberPass_str);
+            jsonParams.put("numberOfPassengers", 0);
+            jsonParams.put("capacity", numberPass_str);
             // TODO : Include price per passenger in the backend
             //jsonParams.put("pricePerPassenger", pricePass_str);
             jsonParams.put("startLat", String.valueOf(startLoc.latitude));
