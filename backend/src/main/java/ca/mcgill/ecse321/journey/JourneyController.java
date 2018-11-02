@@ -120,6 +120,9 @@ public class JourneyController {
             if (modifiedJourney.getCapacity() != 0) {
                 journey.setCapacity(modifiedJourney.getCapacity());
             }
+            if (modifiedJourney.getPrice() != 0) {
+                journey.setPrice(modifiedJourney.getPrice());
+            }
 
             journeyRepository.save(journey);
 
