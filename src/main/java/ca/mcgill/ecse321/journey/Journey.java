@@ -8,6 +8,7 @@ public class Journey {
     private long journeyid;
     private int numberOfPassengers;
     private int capacity;
+    private boolean closed;
     private long driver;
     private double startLat;
     private double startLong;
@@ -56,6 +57,14 @@ public class Journey {
         this.numberOfPassengers = numberOfPassangers;
     }
 
+    @Basic
+    @Column(name = "closed")
+    public boolean isClosed() {
+        return closed;
+    }
+    public void setClosed(boolean closed) {
+        this.closed = closed;
+    }
 
     @Basic
     @Column(name = "driver")
