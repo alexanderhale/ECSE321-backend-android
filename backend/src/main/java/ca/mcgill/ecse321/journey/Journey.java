@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Journey {
     private long journeyid;
     private int numberOfPassengers;
+    private int capacity;
     private long driver;
     private double startLat;
     private double startLong;
@@ -34,6 +35,16 @@ public class Journey {
         this.journeyid = journeyid;
     }
 
+
+    @Basic
+    @Column(name = "capacity")
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
 
     @Basic
     @Column(name = "numpassengers")
