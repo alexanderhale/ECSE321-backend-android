@@ -41,6 +41,11 @@ public class JourneyController {
         List<Journey> all = journeyRepository.findJourniesByDriver(driverId);
         return ResponseEntity.status(HttpStatus.OK).body(all);
     }
+    @GetMapping("/all")
+    public ResponseEntity getAllJourneys() {
+        List<Journey> journeys = journeyRepository.findAll();
+        return ResponseEntity.status(HttpStatus.OK).body(journeys);
+    }
 
     @GetMapping("/{journeyid}/driver")
     public ResponseEntity getDriver(@PathVariable long journeyid) {
@@ -78,7 +83,6 @@ public class JourneyController {
 
     @PutMapping("/{journeyid}/modify")
     public ResponseEntity modifyJourney(@PathVariable long journeyid, @RequestBody Journey modifiedJourney) {
-        System.out.println(modifiedJourney.getStartCountry());
         Journey newJourney = journeyRepository.findById(journeyid).map(journey -> {
             if (modifiedJourney.getStartLat() != 0.0) {
                 journey.setStartLat(modifiedJourney.getStartLat());
@@ -125,7 +129,7 @@ public class JourneyController {
         return ResponseEntity.status(HttpStatus.OK).body(newJourney);
     }
     @PutMapping("/{journeyid}/close")
-    public ResponseEntity modifyJourney(@PathVariable long journeyid) {
+    public ResponseEntity closeJourney(@PathVariable long journeyid) {
         Journey newJourney = journeyRepository.findById(journeyid).map(journey -> {
             journey.setClosed(true);
             journeyRepository.save(journey);
@@ -133,5 +137,13 @@ public class JourneyController {
         }).get();
         return ResponseEntity.status(HttpStatus.OK).body(newJourney);
     }
-
+    @PutMapping("/{journeyid}/open")
+    public ResponseEntity openJourney(@PathVariable long journeyid) {
+        Journey newJourney = journeyRepository.findById(journeyid).map(journey -> {
+            journey.setClosed(false);
+            journeyRepository.save(journey);
+            return journey;
+        }).get();
+        return ResponseEntity.status(HttpStatus.OK).body(newJourney);
+    }
 }
