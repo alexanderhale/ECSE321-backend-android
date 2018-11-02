@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
     public void onViewJourneysClick(View view){
         Intent intent = new Intent(MainActivity.this, ViewJourneysActivity.class);
         intent.putExtra("token", token);
+        intent.putExtra("driverId", driverId);
         startActivity(intent);
         finish();
     }
