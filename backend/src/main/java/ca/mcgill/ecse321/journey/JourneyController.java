@@ -48,13 +48,10 @@ public class JourneyController {
     }
 
 
-    @GetMapping("/me")
-    public ResponseEntity me(HttpServletRequest req) {
-        Map<String, String> claims = (Map<String, String>) req.getAttribute("claims");
-        String id = claims.get("sub");
-
-        Journey journey = journeyRepository.findJourneyById(id).get();
-        return ResponseEntity.status(HttpStatus.OK).body(id);
+    @GetMapping("/{journeyid}/me")
+    public ResponseEntity me(@PathVariable long journeyid) {
+        Journey journey = journeyRepository.findJourneyById(journeyid).get();
+        return ResponseEntity.status(HttpStatus.OK).body(journeyid);
     }
     @GetMapping("/{journeyid}/driver")
     public ResponseEntity getDriver(@PathVariable long journeyid) {

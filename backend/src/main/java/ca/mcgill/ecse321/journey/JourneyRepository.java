@@ -27,6 +27,6 @@ public interface JourneyRepository extends JpaRepository<Journey, Long> {
     @Query(value = "SELECT j FROM Journey j WHERE j.driver = :driver ORDER BY j.journeyid")
     List<Journey> findJourniesByDriver(@Param("driver") long driver);
 
-    @Query("select d from Journey d where d.journeyid = :journeyid")
-    Optional<Journey> findJourneyById(@Param("journeyid") String journeyid);
+    @Query("select j from Journey j where j.journeyid = :journeyid")
+    Optional<Journey> findJourneyById(@Param("journeyid") long journeyid);
 }
