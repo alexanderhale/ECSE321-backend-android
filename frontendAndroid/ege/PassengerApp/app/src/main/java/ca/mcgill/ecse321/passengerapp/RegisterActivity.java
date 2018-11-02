@@ -85,7 +85,6 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     });
                     builder.show();
-                    String error = (String) errorResponse.get("message");
                     System.out.println(errorResponse.get("path").toString());
                 } catch (JSONException e) {
                     Log.e("Error", "unexpected exception", e);

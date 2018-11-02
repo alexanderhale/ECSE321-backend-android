@@ -9,6 +9,7 @@ import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -41,7 +42,13 @@ public class SearchActivity extends AppCompatActivity {
         final LinearLayout linLayout = findViewById(R.id.lin_layout);
         linLayout.setGravity(Gravity.CENTER);
 
+        final View.OnClickListener onJoinJourney = new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                joinPress(v.getId());
 
+            }
+        };
         // Next here get all driver details and splash them on the view
         // Need first to get all the elements (findViewById())
         HttpUtils.get("journey/all", null, token, new JsonHttpResponseHandler() {
@@ -54,16 +61,33 @@ public class SearchActivity extends AppCompatActivity {
                     TextView start = new TextView(that);
                     TextView end = new TextView(that);
                     TextView noPass = new TextView(that);
+                    TextView pricePerPass = new TextView(that);
+                    TextView pickupTime = new TextView(that);
+                    Button joinJourney = new Button(that);
 
+                    joinJourney.setOnClickListener(onJoinJourney);
                     try {
                         JSONObject obj = response.getJSONObject(i);
                         String driverId = obj.getString("driver");
                         String journeyId = obj.getString("journeyid");
-                        String startAddress = obj.getString("startAddress");
                         int numberOfPassengers = obj.getInt("numberOfPassengers");
                         int capacity = obj.getInt("capacity");
 
+                        String startAddress = obj.getString("startAddress");
+                        String startCity = obj.getString("startCity");
+                        String startCountry = obj.getString("startCountry");
 
+                        String endAddress = obj.getString("endAddress");
+                        String endCity = obj.getString("endCity");
+                        String endCountry = obj.getString("endCountry");
+                        String pickupTime_str = obj.getString("timePickup");
+
+                        int price = obj.getInt("price");
+
+                        boolean isClosed = obj.getBoolean("closed");
+                        if (isClosed){
+                            joinJourney.setEnabled(false);
+                        }
                         CardView cv = new CardView(that);
 
                         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
@@ -87,9 +111,16 @@ public class SearchActivity extends AppCompatActivity {
 
                         driver.setText("Driver "+ driverId);
                         journey.setText("Journey "+ journeyId);
-                        start.setText("Start: " + startAddress);
                         noPass.setText("Passengers : " + Integer.toString(numberOfPassengers) + "/" + Integer.toString(capacity));
-
+                        end.setText("End: " + endAddress + ", " + endCity);
+                        noPass.setText("Passengers : " + Integer.toString(numberOfPassengers) + "/" + Integer.toString(capacity));
+                        pricePerPass.setText("Price : " + price + " $");
+                        pickupTime.setText("Time : " + pickupTime_str);
+                        start.setTextColor(Color.parseColor("#000000"));
+                        end.setTextColor(Color.parseColor("#000000"));
+                        noPass.setTextColor(Color.parseColor("#000000"));
+                        pricePerPass.setTextColor(Color.parseColor("#000000"));
+                        pickupTime.setTextColor(Color.parseColor("#000000"));
 
                         driver.setTextColor(Color.parseColor("#000000"));
                         journey.setTextColor(Color.parseColor("#000000"));
@@ -97,10 +128,15 @@ public class SearchActivity extends AppCompatActivity {
                         end.setTextColor(Color.parseColor("#000000"));
                         noPass.setTextColor(Color.parseColor("#000000"));
 
+                        joinJourney.setText("Join journey");
+
                         textLayout.addView(journey);
                         textLayout.addView(driver);
                         textLayout.addView(start);
                         textLayout.addView(end);
+                        textLayout.addView(pricePerPass);
+                        textLayout.addView(pickupTime);
+                        textLayout.addView(joinJourney);
                         textLayout.addView(noPass);
 
                         cv.addView(textLayout);
@@ -118,6 +154,16 @@ public class SearchActivity extends AppCompatActivity {
                 Log.e("Error", errorResponse.toString());
             }
         });
+    }
+
+    public void joinPress(int id){
+        String urlJoin = "journey/"+id+"/addRider";
+//        HttpUtils.put(urlJoin, null, token, new JsonHttpResponseHandler() {
+//            @Override
+//            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+//
+//            }
+//        }
     }
 
 
