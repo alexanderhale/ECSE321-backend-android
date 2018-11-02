@@ -32,20 +32,30 @@ public class ViewJourneysActivity extends AppCompatActivity {
     public int userId;
     Button backButton;
 
-    public void closeJourneyAction() {
-
+    public void closeJourneyAction(int id) {
+        HttpUtils.put(this, "journey/" + id + "/close", null, "applicaton/json", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                finish();
+                startActivity(getIntent());
+            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.e("Error", errorResponse.toString());
+            }
+        });
     }
 
     View.OnClickListener onCloseJourney = new View.OnClickListener() {
         @Override
-        public void onClick(View v) {
+        public void onClick(final View v) {
             AlertDialog.Builder builder = new AlertDialog.Builder(ViewJourneysActivity.this);
             builder.setTitle("Close Journey");
             builder.setMessage("Confirm closing journey?");
             builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    closeJourneyAction();
+                    closeJourneyAction(v.getId());
                 }
             });
             builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
@@ -97,6 +107,9 @@ public class ViewJourneysActivity extends AppCompatActivity {
 
                         int numberOfPassengers = obj.getInt("numberOfPassengers");
                         int capacity = obj.getInt("capacity");
+
+                        long id = obj.getLong("journeyid");
+                        closeJourney.setId((int) id);
 
                         boolean isClosed = obj.getBoolean("closed");
                         if (isClosed) closeJourney.setEnabled(false);
