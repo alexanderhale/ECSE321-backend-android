@@ -69,6 +69,15 @@ public class RiderController {
         return ResponseEntity.status(HttpStatus.OK).body(riders);
     }
 
+    @GetMapping("/secure/me")
+    public ResponseEntity me(HttpServletRequest req) {
+        Map<String, String> claims = (Map<String, String>) req.getAttribute("claims");
+        String username = claims.get("sub");
+
+        Rider driver = riderRepository.findRiderByUsername(username).get();
+        return ResponseEntity.status(HttpStatus.OK).body(driver);
+    }
+
     @PutMapping("/secure/modify")
     public ResponseEntity modifyRider(@RequestBody Rider modifiedRider, HttpServletRequest req) {
         Map<String, String> claims = (Map<String, String>) req.getAttribute("claims");
@@ -76,26 +85,26 @@ public class RiderController {
 
         Rider newRider = riderRepository.findRiderByUsername(username)
                 .map(rider -> {
-                   if (modifiedRider.getUsername() != null) {
-                       rider.setUsername(modifiedRider.getUsername());
-                   }
-                   if (modifiedRider.getPassword() != null) {
-                       rider.setPassword(modifiedRider.getPassword());
-                   }
-                   if (modifiedRider.getName() != null) {
-                       rider.setName(modifiedRider.getName());
-                   }
-                   if (modifiedRider.getRating() != 0) {
-                       rider.setRating(modifiedRider.getRating());
-                   }
-                   if (modifiedRider.getNumberrides() != 0) {
-                       rider.setNumberrides(modifiedRider.getNumberrides());
-                   }
-                   if (modifiedRider.getAge() != 0) {
-                       rider.setAge(modifiedRider.getAge());
-                   }
-                   riderRepository.save(rider);
-                   return rider;
+                    if (modifiedRider.getUsername() != null) {
+                        rider.setUsername(modifiedRider.getUsername());
+                    }
+                    if (modifiedRider.getPassword() != null) {
+                        rider.setPassword(modifiedRider.getPassword());
+                    }
+                    if (modifiedRider.getName() != null) {
+                        rider.setName(modifiedRider.getName());
+                    }
+                    if (modifiedRider.getRating() != 0) {
+                        rider.setRating(modifiedRider.getRating());
+                    }
+                    if (modifiedRider.getNumberrides() != 0) {
+                        rider.setNumberrides(modifiedRider.getNumberrides());
+                    }
+                    if (modifiedRider.getAge() != 0) {
+                        rider.setAge(modifiedRider.getAge());
+                    }
+                    riderRepository.save(rider);
+                    return rider;
                 }).get();
         return ResponseEntity.status(HttpStatus.OK).body(newRider);
     }
