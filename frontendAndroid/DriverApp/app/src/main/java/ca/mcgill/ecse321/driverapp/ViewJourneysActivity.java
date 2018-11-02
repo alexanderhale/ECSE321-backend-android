@@ -128,8 +128,8 @@ public class ViewJourneysActivity extends AppCompatActivity {
 
                         int numberOfPassengers = obj.getInt("numberOfPassengers");
                         int capacity = obj.getInt("capacity");
-                        //int price = obj.getInt("price");
-                        //String pickupTime_str = obj.getString("timePickup");
+                        int price = obj.getInt("price");
+                        String pickupTime_str = obj.getString("timePickup");
                         long id = obj.getLong("journeyid");
                         closeJourney.setId((int) id);
                         modifyJourney.setId((int) id);
@@ -163,8 +163,8 @@ public class ViewJourneysActivity extends AppCompatActivity {
                         start.setText("Start: " + startAddress + ", " + startCity);
                         end.setText("End: " + endAddress + ", " + endCity);
                         noPass.setText("Passengers : " + Integer.toString(numberOfPassengers) + "/" + Integer.toString(capacity));
-                        //pricePerPass.setText("Price : " + price + " $");
-                        //pickupTime.setText("Time : " + pickupTime_str);
+                        pricePerPass.setText("Price : " + price + " $");
+                        pickupTime.setText("Time : " + pickupTime_str);
                         start.setTextColor(Color.parseColor("#000000"));
                         end.setTextColor(Color.parseColor("#000000"));
                         noPass.setTextColor(Color.parseColor("#000000"));

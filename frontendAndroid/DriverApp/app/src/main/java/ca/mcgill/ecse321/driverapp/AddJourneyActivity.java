@@ -232,8 +232,30 @@ public class AddJourneyActivity extends AppCompatActivity implements DatePickerD
         hourFinal = i;
         minuteFinal = i1;
 
-        String pickuptime = yearFinal + "/" + monthFinal + "/" + dayFinal + " - "
-                + hourFinal + ":" + minuteFinal;
+        String day = String.valueOf(dayFinal);
+        String month = String.valueOf(monthFinal);
+        String hour = String.valueOf(hourFinal);
+        String minute = String.valueOf(minuteFinal);
+
+        if(dayFinal < 10){
+            day = "0"+day;
+        }
+
+        if(monthFinal < 10){
+            month = "0"+month;
+        }
+        if(hourFinal < 10){
+            hour = "0"+hour;
+        }
+
+        if(minuteFinal < 10){
+            minute = "0"+minute;
+        }
+
+
+        String pickuptime = yearFinal + "/" + month + "/" + day + " - "
+                    + hour + ":" + minute;
+
         selectTime.setText(pickuptime);
 
     }

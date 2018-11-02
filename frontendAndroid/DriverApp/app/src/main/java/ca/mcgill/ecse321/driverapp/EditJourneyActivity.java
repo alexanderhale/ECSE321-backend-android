@@ -75,7 +75,7 @@ public class EditJourneyActivity extends AppCompatActivity implements DatePicker
                     String endAddr_str = response.get("endAddress").toString();
                     String endCity_str = response.get("endCity").toString();
                     String endCountry_str = response.get("endCountry").toString();
-                    //String time_str = response.get("timePickup").toString();
+                    String time_str = response.get("timePickup").toString();
                     driverId = response.get("driver").toString();
 
                     //setSelection() works with position 0-indexed which is why we use -1
@@ -83,7 +83,7 @@ public class EditJourneyActivity extends AppCompatActivity implements DatePicker
                     pricePassenger.setText(pricePassenger_str);
                     startLocation.setText(startAddr_str + ", " + startCity_str + ", " + startCountry_str);
                     endLocation.setText(endAddr_str + ", " + endCity_str + ", " + endCountry_str);
-                    //selectTime.setText(time_str);
+                    selectTime.setText(time_str);
 
                 } catch (JSONException e) {
                     Log.e("Error", "unexpected exception", e);
@@ -91,26 +91,32 @@ public class EditJourneyActivity extends AppCompatActivity implements DatePicker
             }
 
             @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                try {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(EditJourneyActivity.this);
-                    builder.setTitle("Fetching journey failed");
-                    builder.setMessage("Please try again.");
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Intent intent = new Intent(EditJourneyActivity.this, ViewJourneysActivity.class);
-                            intent.putExtra("token", token);
-                            startActivity(intent);
-                            finish();
-                        }
-                    });
-                    builder.show();
-                    System.out.println(errorResponse.get("path").toString());
-                } catch (JSONException e) {
-                    Log.e("Error", "unexpected exception", e);
-                }
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable){
+                super.onFailure(statusCode, headers, responseString, throwable);
+                System.out.println(responseString);
             }
+
+//            @Override
+//            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+//                try {
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(EditJourneyActivity.this);
+//                    builder.setTitle("Fetching journey failed");
+//                    builder.setMessage("Please try again.");
+//                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            Intent intent = new Intent(EditJourneyActivity.this, ViewJourneysActivity.class);
+//                            intent.putExtra("token", token);
+//                            startActivity(intent);
+//                            finish();
+//                        }
+//                    });
+//                    builder.show();
+//                    System.out.println(errorResponse.get("path").toString());
+//                } catch (JSONException e) {
+//                    Log.e("Error", "unexpected exception", e);
+//                }
+//            }
         });
 
         selectTime.setOnClickListener(new View.OnClickListener(){

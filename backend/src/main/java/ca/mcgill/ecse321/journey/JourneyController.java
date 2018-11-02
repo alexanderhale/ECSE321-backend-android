@@ -51,7 +51,7 @@ public class JourneyController {
     @GetMapping("/{journeyid}/me")
     public ResponseEntity me(@PathVariable long journeyid) {
         Journey journey = journeyRepository.findJourneyById(journeyid).get();
-        return ResponseEntity.status(HttpStatus.OK).body(journeyid);
+        return ResponseEntity.status(HttpStatus.OK).body(journey);
     }
     @GetMapping("/{journeyid}/driver")
     public ResponseEntity getDriver(@PathVariable long journeyid) {
