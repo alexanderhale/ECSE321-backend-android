@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".SearchActivity">
+    >
+
+    <FrameLayout
+        android:id="@+id/search_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <SearchViewall
+                android:id="@+id/search_bar"
+                android:layout_width="270dp"
+                android:layout_height="52dp"
+                app:defaultQueryHint="@string/journey_search_hint"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0" />
+
+
+            <Button
+                android:id="@+id/search_button"
+                android:layout_width="137dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:onClick="searchPressed"
+                android:text="@string/search_button" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/journey_sort_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_area">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/driver_button"
+                android:layout_width="137dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:onClick="sortByDriver"
+                android:text="@string/driver_button" />
+
+            <Button
+                android:id="@+id/car_model_button"
+                android:layout_width="137dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:onClick="sortByCarModel"
+                android:text="@string/car_model_button" />
+
+            <Button
+                android:id="@+id/price_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:onClick="sortByPrice"
+                android:text="@string/price_button" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

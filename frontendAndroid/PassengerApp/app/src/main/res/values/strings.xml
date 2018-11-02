@@ -31,4 +31,9 @@
     <string name="save_button">Save changes</string>
     <string name="logout_button">Logout</string>
     <string name="splash_text">Driver Application</string>
+    <string name="price_button">PRICE</string>
+    <string name="search_button">SEARCH</string>
+    <string name="journey_search_hint">Destination City</string>
+    <string name="driver_button">DRIVER</string>
+    <string name="car_model_button">CAR MODEL</string>
 </resources>

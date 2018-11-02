@@ -46,6 +46,16 @@
         </activity>
         <activity
             android:name=".PassengerProfileActivity"
+            android:label="Passenger Profile"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SearchActivity"
             android:label="Driver Profile"
             android:theme="@style/AppTheme">
             <intent-filter>
