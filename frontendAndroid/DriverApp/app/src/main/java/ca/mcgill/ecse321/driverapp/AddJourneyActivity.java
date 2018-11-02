@@ -148,6 +148,29 @@ public class AddJourneyActivity extends AppCompatActivity implements DatePickerD
             }
         });
     }
+
+
+    public void addJourneyErrorCheck(){
+        try{
+            String startLoc_str = startLocation.getText().toString();
+            String endLoc_str = endLocation.getText().toString();
+            String[] detailed_startLoc = startLoc_str.split(",");
+            String[] detailed_endLoc = endLoc_str.split(",");
+            addJourneyAction();
+        }
+        catch (IndexOutOfBoundsException e){
+            AlertDialog.Builder builder = new AlertDialog.Builder(AddJourneyActivity.this);
+            builder.setTitle("Wrong address format");
+            builder.setMessage("Proper format is : Street Address, City, Country. Please try again");
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                }
+            });
+            builder.show();
+        }
+    }
+
     public void onAddClick(View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(AddJourneyActivity.this);
         builder.setTitle("Add journey");
@@ -155,7 +178,7 @@ public class AddJourneyActivity extends AppCompatActivity implements DatePickerD
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                addJourneyAction();
+                addJourneyErrorCheck();
             }
         });
         builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {

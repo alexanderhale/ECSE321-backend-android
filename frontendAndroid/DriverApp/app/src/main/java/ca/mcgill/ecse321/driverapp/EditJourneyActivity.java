@@ -41,14 +41,14 @@ public class EditJourneyActivity extends AppCompatActivity implements DatePicker
     int dayFinal, monthFinal, yearFinal, hourFinal, minuteFinal;
     Spinner numPassengers;
     EditText pricePassenger, startLocation, endLocation;
-    Button addJourney;
+    Button editJourney;
     Button selectTime;
     Button cancelButton;
     String token, journeyId, driverId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_journey);
+        setContentView(R.layout.edit_journey);
 
         Intent intent = getIntent();
         token = intent.getStringExtra("token");
@@ -58,11 +58,12 @@ public class EditJourneyActivity extends AppCompatActivity implements DatePicker
         pricePassenger = (EditText) findViewById(R.id.price_passenger);
         startLocation = (EditText) findViewById(R.id.start_loc);
         endLocation = (EditText) findViewById(R.id.end_loc);
-        addJourney = (Button) findViewById(R.id.edit_journey_button);
+        editJourney = (Button) findViewById(R.id.edit_journey_button);
         selectTime = (Button) findViewById(R.id.pickup_time_button);
         cancelButton = (Button) findViewById(R.id.cancel_button);
 
-        HttpUtils.get("journey/secure/me", null, token, new JsonHttpResponseHandler() {
+        String journeyUrl = "journey/" + journeyId + "/me";
+        HttpUtils.get(journeyUrl, null, null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
@@ -77,7 +78,7 @@ public class EditJourneyActivity extends AppCompatActivity implements DatePicker
                     String time_str = response.get("timePickup").toString();
                     driverId = response.get("driver").toString();
 
-                    //setSelection() works with position 0-indexed which is why -1
+                    //setSelection() works with position 0-indexed which is why we use -1
                     numPassengers.setSelection(Integer.getInteger(numPassengers_str)-1);
                     pricePassenger.setText(pricePassenger_str);
                     startLocation.setText(startAddr_str + ", " + startCity_str + ", " + startCountry_str);
@@ -132,13 +133,14 @@ public class EditJourneyActivity extends AppCompatActivity implements DatePicker
 
         String startLoc_str = startLocation.getText().toString();
         String endLoc_str = endLocation.getText().toString();
-        String pricePass_str = pricePassenger.getText().toString();
-        String numberPass_str = numPassengers.getSelectedItem().toString();
         String[] detailed_startLoc = startLoc_str.split(",");
         String[] detailed_endLoc = endLoc_str.split(",");
+        String pricePass_str = pricePassenger.getText().toString();
+        String numberPass_str = numPassengers.getSelectedItem().toString();
         LatLng startLoc = getLocationFromAddress(startLoc_str);
         LatLng endLoc = getLocationFromAddress(endLoc_str);
         String timePickup = selectTime.getText().toString();
+
 
         JSONObject jsonParams = new JSONObject();
         try {
@@ -167,10 +169,11 @@ public class EditJourneyActivity extends AppCompatActivity implements DatePicker
         } catch (UnsupportedEncodingException e) {
             Log.e("Error", "unexpected exception", e);
         }
-        HttpUtils.post(this, "journey/create", entity, "application/json", null, new JsonHttpResponseHandler() {
+        String journeyUrl = "journey/"+journeyId+"/modify";
+        HttpUtils.put(this, journeyUrl, entity, "application/json", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Intent intent = new Intent(EditJourneyActivity.this, MainActivity.class);
+                Intent intent = new Intent(EditJourneyActivity.this, ViewJourneysActivity.class);
                 intent.putExtra("token", token);
                 startActivity(intent);
                 finish();
@@ -181,8 +184,7 @@ public class EditJourneyActivity extends AppCompatActivity implements DatePicker
                 try {
                     AlertDialog.Builder builder = new AlertDialog.Builder(EditJourneyActivity.this);
                     builder.setTitle("Adding journey failed");
-                    builder.setMessage("Please try again. Verify addresses are correctly typed. " +
-                            "Format (',' are important): Street address, City, Country");
+                    builder.setMessage("Please try again.");
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -199,6 +201,28 @@ public class EditJourneyActivity extends AppCompatActivity implements DatePicker
             }
         });
     }
+
+    public void editJourneyErrorCheck(){
+        try{
+            String startLoc_str = startLocation.getText().toString();
+            String endLoc_str = endLocation.getText().toString();
+            String[] detailed_startLoc = startLoc_str.split(",");
+            String[] detailed_endLoc = endLoc_str.split(",");
+            editJourneyAction();
+        }
+        catch (IndexOutOfBoundsException e){
+            AlertDialog.Builder builder = new AlertDialog.Builder(EditJourneyActivity.this);
+            builder.setTitle("Wrong address format");
+            builder.setMessage("Proper format is : Street Address, City, Country. Please try again");
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                }
+            });
+            builder.show();
+        }
+    }
+
     public void onEditClick(View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(EditJourneyActivity.this);
         builder.setTitle("Edit journey");
@@ -206,7 +230,7 @@ public class EditJourneyActivity extends AppCompatActivity implements DatePicker
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                editJourneyAction();
+                editJourneyErrorCheck();
             }
         });
         builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
