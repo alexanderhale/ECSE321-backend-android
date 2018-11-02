@@ -222,24 +222,10 @@ public class ApiTest {
 
 
         StringEntity input = new StringEntity("{\"username\":\"elon\",\n" +
-                "\t\"password\":\"musk\"\n" +
+                "\t\"password\":\"musk2\"\n" +
                 "}");
         ((HttpPost) request).setEntity(input);
         request.setHeader(HttpHeaders.CONTENT_TYPE, "application/json");
-        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
-        assertEquals(HttpStatus.SC_OK, httpResponse.getStatusLine().getStatusCode());
-    }
-
-    @Test   // test that all Drivers are returned properly
-    public void getAllDriversSuccessfully() throws Exception {
-        HttpUriRequest request = new HttpGet("https://ecse321-project.herokuapp.com/driver/secure/all");
-        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
-        assertEquals(HttpStatus.SC_OK, httpResponse.getStatusLine().getStatusCode());
-    }
-
-    @Test // test that all Riders are returned properly
-    public void getAllRidersSuccessfully() throws Exception {
-        HttpUriRequest request = new HttpGet("https://ecse321-project.herokuapp.com/rider/secure/all");
         HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
         assertEquals(HttpStatus.SC_OK, httpResponse.getStatusLine().getStatusCode());
     }
