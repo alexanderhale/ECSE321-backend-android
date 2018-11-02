@@ -32,6 +32,32 @@ public class ViewJourneysActivity extends AppCompatActivity {
     public int userId;
     Button backButton;
 
+    public void closeJourneyAction() {
+
+    }
+
+    View.OnClickListener onCloseJourney = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(ViewJourneysActivity.this);
+            builder.setTitle("Close Journey");
+            builder.setMessage("Confirm closing journey?");
+            builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    closeJourneyAction();
+                }
+            });
+            builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    // do nothing
+                }
+            });
+            builder.show();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +83,8 @@ public class ViewJourneysActivity extends AppCompatActivity {
                     closeJourney.setText("Close Journey");
                     modifyJourney.setText("Modify Journey");
 
+                    closeJourney.setOnClickListener(onCloseJourney);
+
                     try {
                         JSONObject obj = response.getJSONObject(i);
                         String startAddress = obj.getString("startAddress");
@@ -69,6 +97,9 @@ public class ViewJourneysActivity extends AppCompatActivity {
 
                         int numberOfPassengers = obj.getInt("numberOfPassengers");
                         int capacity = obj.getInt("capacity");
+
+                        boolean isClosed = obj.getBoolean("closed");
+                        if (isClosed) closeJourney.setEnabled(false);
 
                         CardView cv = new CardView(that);
 
@@ -93,7 +124,7 @@ public class ViewJourneysActivity extends AppCompatActivity {
 
                         start.setText("Start: " + startAddress);
                         end.setText("End: " + endAddress);
-                        noPass.setText("Passengers : " + Integer.toString(capacity) + "/" + Integer.toString(numberOfPassengers));
+                        noPass.setText("Passengers : " + Integer.toString(numberOfPassengers) + "/" + Integer.toString(capacity));
 
                         start.setTextColor(Color.parseColor("#000000"));
                         end.setTextColor(Color.parseColor("#000000"));
