@@ -83,7 +83,6 @@ public class JourneyController {
 
     @PutMapping("/{journeyid}/modify")
     public ResponseEntity modifyJourney(@PathVariable long journeyid, @RequestBody Journey modifiedJourney) {
-        System.out.println(modifiedJourney.getStartCountry());
         Journey newJourney = journeyRepository.findById(journeyid).map(journey -> {
             if (modifiedJourney.getStartLat() != 0.0) {
                 journey.setStartLat(modifiedJourney.getStartLat());
@@ -115,12 +114,36 @@ public class JourneyController {
             if (modifiedJourney.getEndCountry() != null) {
                 journey.setEndCountry(modifiedJourney.getEndCountry());
             }
+            if (modifiedJourney.getNumberOfPassengers() != 0) {
+                journey.setNumberOfPassengers(modifiedJourney.getNumberOfPassengers());
+            }
+            if (modifiedJourney.getCapacity() != 0) {
+                journey.setCapacity(modifiedJourney.getCapacity());
+            }
 
             journeyRepository.save(journey);
 
             return journey;
         }).get();
 
+        return ResponseEntity.status(HttpStatus.OK).body(newJourney);
+    }
+    @PutMapping("/{journeyid}/close")
+    public ResponseEntity closeJourney(@PathVariable long journeyid) {
+        Journey newJourney = journeyRepository.findById(journeyid).map(journey -> {
+            journey.setClosed(true);
+            journeyRepository.save(journey);
+            return journey;
+        }).get();
+        return ResponseEntity.status(HttpStatus.OK).body(newJourney);
+    }
+    @PutMapping("/{journeyid}/open")
+    public ResponseEntity openJourney(@PathVariable long journeyid) {
+        Journey newJourney = journeyRepository.findById(journeyid).map(journey -> {
+            journey.setClosed(false);
+            journeyRepository.save(journey);
+            return journey;
+        }).get();
         return ResponseEntity.status(HttpStatus.OK).body(newJourney);
     }
 }
