@@ -31,15 +31,10 @@ public class JourneyController {
     }
 
     @GetMapping("/secure/all")
-    public ResponseEntity allJourneys(HttpServletRequest req) {
-        Map<String, String> claims = (Map<String, String>) req.getAttribute("claims");
-        String username = claims.get("sub");
+    public ResponseEntity getAllJourneys() {
 
-        Driver driver = driverRepository.findDriverByUsername(username).get();
-        Long driverId = driver.getDriverid();
-
-        List<Journey> all = journeyRepository.findJourniesByDriver(driverId);
-        return ResponseEntity.status(HttpStatus.OK).body(all);
+        List<Journey> journeys = journeyRepository.findAll();
+        return ResponseEntity.status(HttpStatus.OK).body(journeys);
     }
 
     @GetMapping("/{journeyid}/driver")
