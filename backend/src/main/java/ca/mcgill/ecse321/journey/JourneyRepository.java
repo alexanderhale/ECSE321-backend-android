@@ -22,6 +22,6 @@ public interface JourneyRepository extends JpaRepository<Journey, Long> {
     @Query(value = "DELETE FROM rider_journey WHERE riderid = :riderid RETURNING riderid", nativeQuery = true)
     long removeRider(@Param("riderid") long riderid);
 
-    @Query(value = "SELECT j FROM Journey j WHERE j.driver = :driver ")
+    @Query(value = "SELECT j FROM Journey j WHERE j.driver = :driver ORDER BY j.journeyid")
     List<Journey> findJourniesByDriver(@Param("driver") long driver);
 }
