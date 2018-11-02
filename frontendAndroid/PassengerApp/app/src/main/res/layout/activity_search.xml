@@ -37,28 +37,10 @@
                 android:text="@string/search_button" />
 
         </LinearLayout>
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/journey_sort_buttons"
-        android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_area">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
             <Button
                 android:id="@+id/driver_button"
                 android:layout_width="137dp"
@@ -66,7 +48,6 @@
                 android:ems="10"
                 android:onClick="sortByDriver"
                 android:text="@string/driver_button" />
-
             <Button
                 android:id="@+id/car_model_button"
                 android:layout_width="137dp"
@@ -74,7 +55,6 @@
                 android:ems="10"
                 android:onClick="sortByCarModel"
                 android:text="@string/car_model_button" />
-
             <Button
                 android:id="@+id/price_button"
                 android:layout_width="0dp"
@@ -83,45 +63,13 @@
                 android:ems="10"
                 android:onClick="sortByPrice"
                 android:text="@string/price_button" />
-
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lin_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
 
     </FrameLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/journey_sort_buttons">
-
-        <FrameLayout
-            android:id="@+id/cur_journeys"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.991">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/lin_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
-
-        </FrameLayout>
-    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

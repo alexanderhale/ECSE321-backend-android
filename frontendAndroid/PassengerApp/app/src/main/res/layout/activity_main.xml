@@ -62,7 +62,7 @@
         android:layout_marginLeft="86dp"
         android:layout_marginEnd="85dp"
         android:layout_marginRight="85dp"
-        android:layout_marginBottom="152dp"
+        android:layout_marginBottom="180dp"
         android:onClick="onMyProfileClick"
         android:text="@string/my_profile_button"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -78,12 +78,12 @@
         android:layout_marginLeft="86dp"
         android:layout_marginEnd="85dp"
         android:layout_marginRight="85dp"
-        android:layout_marginBottom="256dp"
+        android:layout_marginBottom="336dp"
         android:onClick="onViewJourneysClick"
         android:text="@string/view_journeys_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

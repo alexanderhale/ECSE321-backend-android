@@ -1,8 +1,6 @@
 package ca.mcgill.ecse321.passengerapp;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,7 +9,6 @@ import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -27,6 +24,8 @@ import cz.msebera.android.httpclient.Header;
 public class SearchActivity extends AppCompatActivity {
     String token;
     SearchView viewById;
+    CardView cv;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +54,6 @@ public class SearchActivity extends AppCompatActivity {
                     TextView start = new TextView(that);
                     TextView end = new TextView(that);
                     TextView noPass = new TextView(that);
-
-                   // closeJourney.setOnClickListener(onCloseJourney);
 
                     try {
                         JSONObject obj = response.getJSONObject(i);
@@ -93,6 +90,9 @@ public class SearchActivity extends AppCompatActivity {
                         start.setText("Start: " + startAddress);
                         noPass.setText("Passengers : " + Integer.toString(numberOfPassengers) + "/" + Integer.toString(capacity));
 
+
+                        driver.setTextColor(Color.parseColor("#000000"));
+                        journey.setTextColor(Color.parseColor("#000000"));
                         start.setTextColor(Color.parseColor("#000000"));
                         end.setTextColor(Color.parseColor("#000000"));
                         noPass.setTextColor(Color.parseColor("#000000"));
@@ -121,16 +121,19 @@ public class SearchActivity extends AppCompatActivity {
     }
 
 
-    public void sortByPrice(View view) {
-    }
+    public void searchPressed(View view) {
 
-    public void sortByCarModel(View view) {
+        String adressSearched = viewById.getQuery().toString();
+       // cv.removeAllViews();
+
     }
 
     public void sortByDriver(View view) {
     }
 
-    public void searchPressed(View view) {
-        System.out.println(viewById.getQuery().toString());
+    public void sortByCarModel(View view) {
+    }
+
+    public void sortByPrice(View view) {
     }
 }

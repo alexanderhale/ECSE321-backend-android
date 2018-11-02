@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Driver Application</string>
+    <string name="app_name">Passenger Application</string>
     <string name="action_settings">Settings</string>
     <string name="register_welcome_text">Passenger Application</string>
     <string name="register_button">REGISTER</string>
@@ -12,15 +12,9 @@
     <string name="start_location_label">Start location :</string>
     <string name="end_location_label">End location :</string>
     <string name="number_passenger_label">Number of passengers :</string>
-    <string name="select_pickup_time">Select pickup time</string>
-    <string name="price_per_pass_label">Price per passenger :</string>
-    <string name="add_journey_button">Add journey</string>
-    <string name="edit_journey_button">Edit journey</string>
-    <string name="view_journeys_button">View Journeys</string>
+    <string name="view_journeys_button">Available Journey Ads</string>
     <string name="my_profile_button">My profile</string>
-    <string name="driver_name_holder">Driver Name</string>
     <string name="age_label">Age</string>
-    <string name="weather_holder">Weather status</string>
     <string name="cancel_button">Cancel</string>
     <string name="full_name_profile">Full Name :</string>
     <string name="username_profile">Username :</string>
@@ -30,7 +24,7 @@
     <string name="back_button">Back</string>
     <string name="save_button">Save changes</string>
     <string name="logout_button">Logout</string>
-    <string name="splash_text">Driver Application</string>
+    <string name="splash_text">Passenger Application</string>
     <string name="price_button">PRICE</string>
     <string name="search_button">SEARCH</string>
     <string name="journey_search_hint">Destination City</string>
