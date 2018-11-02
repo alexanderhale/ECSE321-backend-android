@@ -9,7 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -28,9 +30,15 @@ public class JourneyController {
         return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(200, "Journey successfully created"));
     }
 
-    @GetMapping("/all")
-    public ResponseEntity allJourneys() {
-        List<Journey> all = journeyRepository.findAll();
+    @GetMapping("/secure/all")
+    public ResponseEntity allJourneys(HttpServletRequest req) {
+        Map<String, String> claims = (Map<String, String>) req.getAttribute("claims");
+        String username = claims.get("sub");
+
+        Driver driver = driverRepository.findDriverByUsername(username).get();
+        Long driverId = driver.getDriverid();
+
+        List<Journey> all = journeyRepository.findJourniesByDriver(driverId);
         return ResponseEntity.status(HttpStatus.OK).body(all);
     }
 
@@ -102,6 +110,12 @@ public class JourneyController {
             if (modifiedJourney.getEndCountry() != null) {
                 journey.setEndCountry(modifiedJourney.getEndCountry());
             }
+            if (modifiedJourney.getNumberOfPassengers() != 0) {
+                journey.setNumberOfPassengers(modifiedJourney.getNumberOfPassengers());
+            }
+            if (modifiedJourney.getCapacity() != 0) {
+                journey.setCapacity(modifiedJourney.getCapacity());
+            }
 
             journeyRepository.save(journey);
 
@@ -110,4 +124,14 @@ public class JourneyController {
 
         return ResponseEntity.status(HttpStatus.OK).body(newJourney);
     }
+    @PutMapping("/{journeyid}/close")
+    public ResponseEntity modifyJourney(@PathVariable long journeyid) {
+        Journey newJourney = journeyRepository.findById(journeyid).map(journey -> {
+            journey.setClosed(true);
+            journeyRepository.save(journey);
+            return journey;
+        }).get();
+        return ResponseEntity.status(HttpStatus.OK).body(newJourney);
+    }
+
 }

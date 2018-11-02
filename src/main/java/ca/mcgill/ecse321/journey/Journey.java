@@ -7,6 +7,8 @@ import javax.persistence.*;
 public class Journey {
     private long journeyid;
     private int numberOfPassengers;
+    private int capacity;
+    private boolean closed;
     private long driver;
     private double startLat;
     private double startLong;
@@ -36,6 +38,16 @@ public class Journey {
 
 
     @Basic
+    @Column(name = "capacity")
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    @Basic
     @Column(name = "numpassengers")
     public int getNumberOfPassengers() {
         return numberOfPassengers;
@@ -45,6 +57,14 @@ public class Journey {
         this.numberOfPassengers = numberOfPassangers;
     }
 
+    @Basic
+    @Column(name = "closed")
+    public boolean isClosed() {
+        return closed;
+    }
+    public void setClosed(boolean closed) {
+        this.closed = closed;
+    }
 
     @Basic
     @Column(name = "driver")

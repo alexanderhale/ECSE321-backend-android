@@ -74,8 +74,8 @@ public class RiderController {
         Map<String, String> claims = (Map<String, String>) req.getAttribute("claims");
         String username = claims.get("sub");
 
-        Rider driver = riderRepository.findRiderByUsername(username).get();
-        return ResponseEntity.status(HttpStatus.OK).body(driver);
+        Rider rider = riderRepository.findRiderByUsername(username).get();
+        return ResponseEntity.status(HttpStatus.OK).body(rider);
     }
 
     @PutMapping("/secure/modify")
