@@ -1,7 +1,6 @@
 <template>
   <div id="fleetstatus">
     <h2>Rankings</h2>
-
     <p>
       <span style="color:red">Error: Message text comes here</span>
     </p>
