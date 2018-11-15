@@ -3,8 +3,8 @@
     <h2>Participants</h2>
     <table>
       <tr>
-          <td>test3333</td>
-          <td>Event to attend</td>
+          <td>NAME</td>
+          <td>EVENT (ridepls)</td>
       </tr>
       <tr>
           <td>
