@@ -3,8 +3,8 @@
     <h2>Participants</h2>
     <table>
       <tr>
-          <td>NAME</td>
-          <td>EVENT (ridepls)</td>
+          <td>nameHere</td>
+          <td>eventHere(toBeRide)</td>
       </tr>
       <tr>
           <td>
