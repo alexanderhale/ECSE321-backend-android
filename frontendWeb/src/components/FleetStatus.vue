@@ -1,10 +1,10 @@
 <template>
-  <div id="ridesharing">
-    <h2>Participants</h2>
+  <div id="fleetstatus">
+    <h2>Fleet Status</h2>
     <table>
       <tr>
-          <td>nameHere</td>
-          <td>eventHere(toBeRide)</td>
+          <td></td>
+          <td>search?</td>
       </tr>
       <tr>
           <td>

@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
-import RideSharing from '@/components/RideSharing'
+import FleetStatus from '@/components/FleetStatus'
+import Rankings from '@/components/Rankings'
 
 Vue.use(Router)
 
@@ -14,8 +15,13 @@ export default new Router({
     },
     {
       path: '/app',
-      name: 'RideSharing',
-      component: RideSharing
+      name: 'FleetStatus',
+      component: FleetStatus
+    },
+    {
+      path: '/app2',
+      name: 'Rankings',
+      component: Rankings
     }
   ]
 })
