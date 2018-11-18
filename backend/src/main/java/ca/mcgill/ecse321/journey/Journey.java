@@ -22,6 +22,7 @@ public class Journey {
     private String endCountry;
     private double price;
     private String timePickup;
+    private int rating;
 
     @Id
     @GeneratedValue(generator = "journeyid_generator")
@@ -197,5 +198,15 @@ public class Journey {
 
     public void setTimePickup(String timePickup) {
         this.timePickup = timePickup;
+    }
+
+    @Basic
+    @Column(name = "rating")
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 }
