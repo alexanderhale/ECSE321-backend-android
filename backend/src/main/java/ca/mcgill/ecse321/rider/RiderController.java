@@ -70,6 +70,12 @@ public class RiderController {
         return ResponseEntity.status(HttpStatus.OK).body(riders);
     }
 
+    @GetMapping("/admin/all")
+    public ResponseEntity getAdminAllRiders() {
+        List<Rider> riders = riderRepository.findAll();
+        return ResponseEntity.status(HttpStatus.OK).body(riders);
+    }
+
     @GetMapping("/secure/me")
     public ResponseEntity me(HttpServletRequest req) {
         Map<String, String> claims = (Map<String, String>) req.getAttribute("claims");

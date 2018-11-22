@@ -111,4 +111,10 @@ public class DriverController {
         List<Driver> drivers = driverRepository.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(drivers);
     }
+
+    @GetMapping("/admin/all")
+    public ResponseEntity getAdminAllDrivers() {
+        List<Driver> drivers = driverRepository.findAll();
+        return ResponseEntity.status(HttpStatus.OK).body(drivers);
+    }
 }
