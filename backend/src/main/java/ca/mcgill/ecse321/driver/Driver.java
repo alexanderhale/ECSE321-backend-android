@@ -110,24 +110,24 @@ public class Driver {
         this.status = status;
     }
 
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
-        Driver driver = (Driver) object;
-        return driverid == driver.driverid &&
-                rating == driver.rating &&
-                numberrides == driver.numberrides &&
-                age == driver.age &&
-                status == driver.status &&
-                java.util.Objects.equals(username, driver.username) &&
-                java.util.Objects.equals(password, driver.password) &&
-                java.util.Objects.equals(carModel, driver.carModel) &&
-                java.util.Objects.equals(name, driver.name);
-    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), driverid, username, password, carModel, name, rating, numberrides, age, status);
+        Driver that = (Driver) o;
+
+        if (driverid != that.driverid) return false;
+        if (rating != that.rating) return false;
+        if (numberrides != that.numberrides) return false;
+        if (age != that.age) return false;
+        if (username != null ? !username.equals(that.username) : that.username != null) return false;
+        if (password != null ? !password.equals(that.password) : that.password != null) return false;
+        if (carModel != null ? !carModel.equals(that.carModel) : that.carModel != null) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (status != that.status) return false;
+
+        return true;
     }
 }
 

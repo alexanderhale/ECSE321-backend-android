@@ -99,22 +99,23 @@ public class Rider {
         this.status = status;
     }
 
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
-        Rider rider = (Rider) object;
-        return riderid == rider.riderid &&
-                rating == rider.rating &&
-                numberrides == rider.numberrides &&
-                age == rider.age &&
-                status == rider.status &&
-                java.util.Objects.equals(username, rider.username) &&
-                java.util.Objects.equals(password, rider.password) &&
-                java.util.Objects.equals(name, rider.name);
-    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), riderid, username, password, name, rating, numberrides, age, status);
+        Rider that = (Rider) o;
+
+        if (riderid != that.riderid) return false;
+        if (rating != that.rating) return false;
+        if (numberrides != that.numberrides) return false;
+        if (age != that.age) return false;
+        if (username != null ? !username.equals(that.username) : that.username != null) return false;
+        if (password != null ? !password.equals(that.password) : that.password != null) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (status != that.status) return false;
+
+
+        return true;
     }
 }
