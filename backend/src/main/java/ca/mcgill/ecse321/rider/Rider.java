@@ -12,6 +12,7 @@ public class Rider {
     private int rating;
     private int numberrides;
     private int age;
+    private boolean status;
 
     @Id
     @GeneratedValue(generator = "riderid_generator")
@@ -88,6 +89,16 @@ public class Rider {
         this.age = age;
     }
 
+    @Basic
+    @Column(name = "status")
+    public boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -102,6 +113,8 @@ public class Rider {
         if (username != null ? !username.equals(that.username) : that.username != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (status != null ? !status.equals(that.status) : that.status != null) return false;
+
 
         return true;
     }
