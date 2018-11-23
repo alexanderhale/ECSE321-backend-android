@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/journey")
 public class JourneyController {
@@ -131,6 +132,9 @@ public class JourneyController {
             }
             if (modifiedJourney.getTimePickup() != null) {
                 journey.setTimePickup(modifiedJourney.getTimePickup());
+            }
+            if (modifiedJourney.getRating() != 0) {
+                journey.setRating(modifiedJourney.getRating());
             }
 
             journeyRepository.save(journey);

@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/rider")
 public class RiderController {
@@ -65,6 +66,12 @@ public class RiderController {
 
     @GetMapping("/secure/all")
     public ResponseEntity getAllRiders() {
+        List<Rider> riders = riderRepository.findAll();
+        return ResponseEntity.status(HttpStatus.OK).body(riders);
+    }
+
+    @GetMapping("/admin/all")
+    public ResponseEntity getAdminAllRiders() {
         List<Rider> riders = riderRepository.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(riders);
     }

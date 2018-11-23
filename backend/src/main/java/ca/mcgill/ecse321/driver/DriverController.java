@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/driver")
 public class DriverController {
@@ -107,6 +108,12 @@ public class DriverController {
 
     @GetMapping("/secure/all")
     public ResponseEntity getAllDrivers() {
+        List<Driver> drivers = driverRepository.findAll();
+        return ResponseEntity.status(HttpStatus.OK).body(drivers);
+    }
+
+    @GetMapping("/admin/all")
+    public ResponseEntity getAdminAllDrivers() {
         List<Driver> drivers = driverRepository.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(drivers);
     }
